@@ -1,5 +1,5 @@
 :root {
-    --teal: #29705e;
+    --teal: #000000;
 }
 
 body {
@@ -13,6 +13,22 @@ header {
 
 .title {
     color: white;
+    text-align: center;
+}
+
+.mainButton {
+    font-size: 1.5rem;
+    background-color: rgb(21, 74, 219);
+    margin: 0;
+    padding: 0;
+}
+
+.navBar {
+    margin-left: 20px;
+}
+
+.navButton {
+    min-width: 200px;
 }
 
 #mainPanel {
