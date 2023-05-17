@@ -27,7 +27,7 @@
 
       <div class="flex three demo navBar">
         <button href="#mainPanel" class="mainButton navButton" style="width:25%" type="submit">Word Information</button>
-        <button href="#searchHistoryPanel" id=searchButton2 class="mainButton navButton" style="width:25%" type="submit">Search
+        <button href="#searchHistory" id=searchButton2 class="mainButton navButton" style="width:25%" type="submit">Search
           History</button>
         <button id="dogBtn" class="mainButton navButton" style="width:25%" type="submit">Generate Dog</button>
       </div>
@@ -40,7 +40,7 @@
     <!-- main panel section; includes the returned results from the inputted word and some daily news -->
     <section id="mainPanel" class="row">
       <!-- search results; elements include: word name, phonetics, definition, an example in a sentance, and the word type (noun, verb, adverb, etc) -->
-      <div id="searchResult" class="col-lg">
+      <div id="searchResult" class="col-6">
         <p id="word"></p>
         <audio controls autoplay muted>
           <source id="sound" src="" type="audio/mpeg">
@@ -51,10 +51,13 @@
         <p id="wordType"></p>
       </div>
       <!-- news panel -->
-      <div id="dogPanel" class="col-lg"></div>
+      <div id="dogPanel" class="col-6"></div>
     </section>
 
     <!-- displayed at the bottom of the page; last n entries of the search history -->
+    <div id="searchHistory">
+      <ul id="ulSearch"></ul>
+    </div>
 
     </section>
 
