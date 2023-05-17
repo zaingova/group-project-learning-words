@@ -149,6 +149,22 @@ var getNextApi = function (word) {
       var day1Humidity = dataFor.list[0].main.humidity;
 
 
+        var displayWord = function (data) {
+        var wordSound = document.querySelector('#sound');
+        var wordDef = document.querySelector('#definition');
+        var wordEx = document.querySelector('#example');
+        var wordType = document.querySelector('#wordType');
+        var definitionPrint = data[0].meanings[0].definitions[0].definition;
+        /// var examplePrint = data[0].meaning[0].definition[0];
+        var typePrint = data[0].meanings[0].partOfSpeech;
+        wordDef.textContent = "Meanings: " + definitionPrint;
+        //wordSound.textContent = "Phonetic: " + soundPrint;
+        //wordSound = "https://api.dictionaryapi.dev/media/pronunciations/en/cat-us.mp3";
+        wordType.textContent = 'Part of speech: ' + typePrint;
+        wordSound.setAttribute("src", data[0].phonetics[1].audio);
+    
+        getNextApi(data[0].word)
+        }
     }
 
 
