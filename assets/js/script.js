@@ -4,6 +4,7 @@ var searchResult = document.querySelector("#searchResult")
 var searchHistory = document.querySelector("#searchHistory");
 var ulSearch = document.querySelector('#ulSearch');
 var wordInput = document.querySelector('#word');
+var mainPanel = document.querySelector('#mainPanel');
 
 
 var apiCallFree = "https://api.dictionaryapi.dev/api/v2/entries/en/";
@@ -53,6 +54,7 @@ function formSubmitHandler(event) {
             if (response.ok) {
                 response.json().then(function (data) {
                     var wordComplete = data[0].word;
+                    mainPanel.style.display = 'block';
                     wordInput.textContent = wordComplete;
                     console.log(data)
                     displayWord(data)
@@ -92,7 +94,7 @@ function formSubmitHandler(event) {
         wordSound.textContent = "Phonetic: " + soundPrint;
         wordType.textContent = 'Part of speech: ' + typePrint; 
     
-        //getNextApi(content.name)
+        getNextApi(data[0].word)
         }
     }
 
@@ -102,6 +104,7 @@ function formSubmitHandler(event) {
     var apiUrl2 = apiCallWord + word;
     fetch(apiUrl2)
       .then(function (response1) {
+        console.log(response1)
         if (response1.ok) {
           response1.json().then(function (dataFor) {
             displaySynon(dataFor);
@@ -111,7 +114,7 @@ function formSubmitHandler(event) {
         }
       })
       .catch(function (error) {
-        alert("Unable to connect to Weather Map");
+        alert("Unable to connect to Word Api");
       });
 
 
@@ -135,6 +138,6 @@ function formSubmitHandler(event) {
 
 
         //getForecast(content.name)
-}
+}}
 
 inputBtn.addEventListener("click", formSubmitHandler);
