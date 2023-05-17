@@ -1,43 +1,55 @@
 :root {
-    --teal: #000000;
+    --materialBlack: #000000;
+    --almostBlack: #2b2b2b;
+    --materialBlue: #2061da;
+    --materialRed: #e6374f;
+    --materialGreen: #159c37;
+    --materialGray: #a5a5a5;
+    --materialWhite: #fff;
+}
+
+* {
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--materialWhite);
 }
 
 body {
-    background-color: #d6d6d6;
+    background-color: var(--almostBlack);
 }
 
 header {
-    background: var(--teal);
-    margin: 0;
+    background: var(--materialBlack);
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
-.title {
-    color: white;
+.description {
     text-align: center;
 }
 
-.mainButton {
-    font-size: 1.5rem;
-    background-color: rgb(21, 74, 219);
-    margin: 0;
-    padding: 0;
+.title {
+    text-align: center;
 }
 
-.navBar {
-    margin-left: 20px;
+#catBtn {
+    width: 25%;
+    background-color: var(--materialGreen);
 }
 
-.navButton {
-    min-width: 200px;
+#dogBtn {
+    width: 25%;
+    background-color: var(--materialRed);
 }
 
 #mainPanel {
     background-color: rgb(53, 53, 53);
     display: none;
-}
 
-#mainPanel p {
-    color: white;
+    position: relative;
+    top: 30vh;
+
+    padding: 30px;
 }
 
 #nyTimesNews {
@@ -52,4 +64,15 @@ header {
 
 #searchResult {
     align-items: center;
+}
+
+#submitBtn {
+    padding: 15px;
+    width: 50%;
+
+    background-color: var(--materialBlue);
+}
+
+#word {
+    font-size: 30px;
 }
