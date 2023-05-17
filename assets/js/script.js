@@ -55,6 +55,7 @@ function formSubmitHandler(event) {
                     var wordComplete = data[0].word;
                     wordInput.textContent = wordComplete;
                     console.log(data)
+                    displayWord(data)
                     if (addToLocalStorage) {
                         searchHistoryArray.unshift(wordComplete);
                         localStorage.setItem("wordSearch", JSON.stringify(searchHistoryArray));
@@ -76,25 +77,24 @@ function formSubmitHandler(event) {
             alert("Unable to connect to Free Dictionary");
         });
 
+    
+
+        var displayWord = function (data) {
+        var wordSound = document.querySelector('#sound');
+        var wordDef = document.querySelector('#definition');
+        var wordEx = document.querySelector('#example');
+        var wordType = document.querySelector('#wordType');
+        var definitionPrint = data[0].meanings[0].definitions[0].definition;
+        var soundPrint = data[0].phonetics[1].sourceUrl;
+        /// var examplePrint = data[0].meaning[0].definition[0];
+        var typePrint = data[0].meanings[0].partOfSpeech;
+        wordDef.textContent = "Meanings: " + definitionPrint;
+        wordSound.textContent = "Phonetic: " + soundPrint;
+        wordType.textContent = 'Part of speech: ' + typePrint; 
+    
+        //getNextApi(content.name)
+        }
     }
-// Display word 
-/*
-var displayWord = function (content) {
-    var temperatureEl = document.querySelector("#temperature");
-    var descriptionEl = document.querySelector("#description");
-    var humidityEl = document.querySelector("#humidity");
-   
-    var temperaturePrint = content.main.temp;
-    var descriptionPrint = content.weather[0].main;
-    var humidityPrint = content.main.humidity;
-    outputSearch.setAttribute("style", "border:rgb(180, 215, 180) dashed 2px!important; border-radius:4px; align-items:center; padding:0px 5px 15px 5px");
-    temperatureEl.textContent = "Temperature: " + temperaturePrint + " °C";
-    descriptionEl.textContent = "Weather: " + descriptionPrint;
-    humidityEl.textContent = "Humidity: " + humidityPrint + " %";
-   
-   
-    getForecast(content.name)
-  }
 
 
   //get Next API
@@ -111,22 +111,30 @@ var displayWord = function (content) {
         }
       })
       .catch(function (error) {
-        alert("Unable to connect to WordAPI");
+        alert("Unable to connect to Weather Map");
       });
 
 
+      //Display synonyms 
+      var displaySynon = function (dataFor) {
+        var day1 = document.querySelector("#day-1");
+        
+  
+        forecastTitle.textContent = "5-Day Forecast"
+  
+        var day1Temp = dataFor.list[0].main.temp;
+        var day1x = dataFor.list[0].weather[0].icon;
+        var day1Desc = "http://openweathermap.org/img/w/" + day1x + ".png";
+        var day1Wind = dataFor.list[0].wind.speed;
+        var day1Date = dataFor.list[0].dt_txt;
+        var day1Humidity = dataFor.list[0].main.humidity;
+
+
+      }
 
 
 
+        //getForecast(content.name)
+}
 
-
-
-
-
-
-
-
-
-
-*/
 inputBtn.addEventListener("click", formSubmitHandler);
