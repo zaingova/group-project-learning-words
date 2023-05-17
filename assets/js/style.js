@@ -100,7 +100,7 @@ function getWord(word, addToLocalStorage = true) {
 //     formSubmitHandler(event);
 // });
 
-// To activate the link Live Sports Odds in the header-navbar panel with id "searchButton2" and in the main-section-newspanel div id "liveSportOdds" 
+// To activate the to Dogs images in the header-navbar panel with id "searchButton2" and in the main-section-newspanel div id "liveSportOdds" 
 
 const searchButton = document.getElementById('searchButton2');
 

@@ -1,0 +1,33 @@
+:root {
+    --teal: #29705e;
+}
+
+body {
+    background-color: #d6d6d6;
+}
+
+header {
+    background: var(--teal);
+    margin: 0;
+}
+
+.title {
+    color: white;
+    background-color: black;
+    padding: 20px;
+}
+
+#mainPanel {
+    background-color: blue;
+    display: none;
+}
+
+#nyTimesNews {
+    background-color: aquamarine;
+    display: none;
+}
+
+#searchHistory {
+    display: none;
+    background-color: crimson;
+}
