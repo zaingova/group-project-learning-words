@@ -17,27 +17,25 @@
 
   <!-- header + navbar panel: includes search bar and navigation bar -->
   <header>
-    <h1 class="text-center">Learning Words</h1>
-    <nav class="navbar bg-primary">
-      <div class="container-fluid">
-        <form class="d-flex" role="search">
-          <input id="wordEnter" class="form-control" type="search" placeholder="Enter Word: " aria-label="Search">
-          <button id="submitBtn" class="btn btn-light" type="submit">Search</button>
-        </form>
+    <h1 class="text-center title">Learning Words</h1>
+    <div class="row">
+      <form class="col-lg float-left" role="search">
+        <input id="wordEnter" class="form-control" type="search" placeholder="Enter Word: " aria-label="Search">
+        <button id="submitBtn" class="" type="submit">Search</button>
+      </form>
 
-        <div class="justify-content-center">
-          <button class="btn btn-light" style="width:100%" type="submit">Search</button>
-          <button class="btn btn-light" style="width:100%" type="submit">Search</button>
-        </div>
+      <div class="" style="width:50%; display:inline-bl">
+        <button href="#" class="btn btn-light" style="width:25%" type="submit">Search</button>
+        <button class="btn btn-light" style="width:25%" type="submit">Search</button>
       </div>
-    </nav>
+    </div>
   </header>
 
   <main>
     <!-- main panel section; includes the returned results from the inputted word and some daily news -->
-    <section id="main-panels">
+    <section id="mainPanel"  class="row">
       <!-- search results; elements include: word name, phonetics, definition, an example in a sentance, and the word type (noun, verb, adverb, etc) -->
-      <div id="searchResult">
+      <div id="searchResult" class="col-lg">
         <p id="word"></p>
         <audio controls autoplay muted>
           <source id="sound" src="" type="audio/mpeg">
@@ -46,15 +44,15 @@
         <p id="definition"></p>
         <p id="example"></p>
         <p id="wordType"></p>
+        <p id="synonym"></p>
       </div>
       <!-- news panel -->
-      <div id="nyTimesNews"></div>
+      <div id="nyTimesNews" class="col-lg">
+      </div>
     </section>
 
     <!-- displayed at the bottom of the page; last n entries of the search history -->
-    <section id="search-panel">
-      <div id="searchHistory"></div>
-      <ul id="ulSearch">    </ul>
+
     </section>
 
   </main>
