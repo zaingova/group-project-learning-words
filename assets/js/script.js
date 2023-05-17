@@ -11,30 +11,32 @@ var apiCallFree = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 var apiCallWord = 'https://wordsapiv1.p.mashape.com/words/';
 var synonyms = '/synonyms'
 
-window.onload = function () {
+
     inputSearch.addEventListener("keypress", function (event) {
         if (event.keyCode === 13) {
             formSubmitHandler(event)
         }
     })
-}
 
 
-if (localStorage.getItem("wordSearch")) {
-    searchHistoryArray = JSON.parse(localStorage.getItem("wordSearch"));
-    var newArr = searchHistoryArray.slice(0, 7);
-    //newArr.forEach(word => {
-        var listBtn = document.createElement("li");
-        var newBtn = document.createElement("button");
-        newBtn.textContent = word;
-        listBtn.appendChild(newBtn);
-       // ulSearch.appendChild(listBtn);
-        newBtn.onclick = function () {
-            getWord(word, false);
-        }
+    if (localStorage.getItem("wordSearch")) {
+        searchHistoryArray = JSON.parse(localStorage.getItem("wordSearch"));
+        var newArr = searchHistoryArray.slice(0, 7);
+        newArr.forEach(word => {
+            searchHistory.setAttribute("style","display:block");
+            var listBtn = document.createElement("li");
+            var newBtn = document.createElement("button");
+            newBtn.textContent = word;
+            listBtn.appendChild(newBtn);
+            ulSearch.appendChild(listBtn);
+            newBtn.onclick = function () {
+                getWord(word, false);
+            }
+        });
     } else {
-    searchHistoryArray = [];
-}
+        searchHistoryArray = [];
+    }
+
 
 function formSubmitHandler(event) {
     event.preventDefault();
@@ -63,12 +65,18 @@ function formSubmitHandler(event) {
                         localStorage.setItem("wordSearch", JSON.stringify(searchHistoryArray));
                         var listBtn2 = document.createElement("li");
                         var newBtn2 = document.createElement("button");
-                        newBtn2.textContent = wordComplete;
+                        newBtn2.textContent = word;
                         listBtn2.appendChild(newBtn2);
-                        if (searchHistory.children.length > 7) {
-                            searchHistory.removeChild(searchHistory.lastChild);
+                        ulSearch.appendChild(listBtn2);
+                        
+                        
+                        var newBtn2 = document.createElement("button");
+                        newBtn2.textContent = wordComplete;
+                        ulSearch.appendChild(newBtn2);
+                        if (ulSearch.children.length > 7) {
+                            ulSearch.removeChild(ulSearch.lastChild);
                         }
-                        searchHistory.prepend(listBtn2);
+                        searchHistory.prepend(listBtn);
                     }
                 })
             } else {
@@ -79,7 +87,7 @@ function formSubmitHandler(event) {
             alert("Unable to connect to Free Dictionary");
         });
 
-    // comment
+    
 
         var displayWord = function (data) {
         var wordSound = document.querySelector('#sound');
@@ -94,12 +102,12 @@ function formSubmitHandler(event) {
         wordSound.textContent = "Phonetic: " + soundPrint;
         wordType.textContent = 'Part of speech: ' + typePrint; 
     
-        getNextApi(data[0].word)
+        //getNextApi(data[0].word)
         }
     }
 
 
-  //get Next API
+  /*get Next API
   var getNextApi = function (word) {
     var apiUrl2 = apiCallWord + word;
     fetch(apiUrl2)
@@ -137,7 +145,7 @@ function formSubmitHandler(event) {
 
 
 
-        //getForecast(content.name)
-}}
+        //getForecast(content.name)}*/
 
+}
 inputBtn.addEventListener("click", formSubmitHandler);
