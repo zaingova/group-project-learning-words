@@ -79,7 +79,7 @@ function formSubmitHandler(event) {
             alert("Unable to connect to Free Dictionary");
         });
 
-    
+    // comment
 
         var displayWord = function (data) {
         var wordSound = document.querySelector('#sound');
