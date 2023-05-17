@@ -9,6 +9,7 @@ var mainPanel = document.querySelector('#mainPanel');
 
 var apiCallFree = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 var apiCallWord = 'https://wordsapiv1.p.mashape.com/words/';
+var synonyms = '/synonyms'
 
 window.onload = function () {
     inputSearch.addEventListener("keypress", function (event) {
