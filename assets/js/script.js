@@ -78,8 +78,9 @@ console.log(data)
             alert("Unable to connect to Free Dictionary");
         });
 
-
+    }
 // Display word 
+/*
 var displayWord = function (content) {
     var temperatureEl = document.querySelector("#temperature");
     var descriptionEl = document.querySelector("#description");
@@ -108,7 +109,5 @@ var displayWord = function (content) {
 
 
 }
-
+*/
 inputBtn.addEventListener("click", formSubmitHandler);
-
-
