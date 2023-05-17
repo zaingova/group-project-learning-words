@@ -5,3 +5,26 @@
 body {
     background-color: #d6d6d6;
 }
+
+header {
+    background: var(--teal);
+    margin: 0;
+}
+
+.title {
+    color: white;
+    background-color: black;
+    padding: 20px;
+}
+
+#mainPanel {
+    background-color: blue;
+}
+
+#nyTimesNews {
+    background-color: aquamarine;
+}
+
+#searchHistory {
+    background-color: crimson;
+}
