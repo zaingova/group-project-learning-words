@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/css/normalize.css" />
@@ -16,21 +17,21 @@
 <body>
 
   <!-- header + navbar panel: includes search bar and navigation bar -->
-  <header>
-    <h1 class="text-center">Learning Words</h1>
-    <nav class="navbar bg-primary">
-      <div class="container-fluid">
-        <form class="d-flex" role="search">
-          <input id="wordEnter" class="form-control" type="search" placeholder="Enter Word: " aria-label="Search">
-          <button id="submitButton" class="btn btn-light" type="submit">Search</button>
-        </form>
+  <header class="justify-content-center">
+    <div class="row">
+      <form class="col-lg float-left" role="search">
+        <input id="wordEnter" class="form-control" type="search" placeholder="Enter Word: " aria-label="Search">
+        <button id="submitBtn" class="" type="submit">Search</button>
+      </form>
 
-        <div class="justify-content-center">
-          <button class="btn btn-light" style="width:100%" type="submit">Search</button>
-          <button class="btn btn-light" style="width:100%" type="submit" id="searchButton2">Search</button>
-        </div>
+      <div class="" style="width:50%">
+        <button href="#mainPanel" class="btn btn-light" style="width:25%" type="submit">Word Information</button>
+        <button href="#searchHistoryPanel" id=searchButton2 class="btn btn-light" style="width:25%" type="submit">Search History</button>
+        <button id="dogBtn" class="btn btn-light" style="width:25%" type="submit">Generate Dog</button>
       </div>
-    </nav>
+
+      <h1 class="text-center title">Learning Words</h1>
+    </div>
   </header>
 
   <main>
@@ -48,13 +49,7 @@
         <p id="wordType"></p>
       </div>
       <!-- news panel -->
-      <div id="liveSportOdds" style="background-color: #58ed79; color: #333; padding: 10px; width: 40%; position: absolute; top: 30%; right: 3%; display: flex; justify-content: center; align-items: center;"></div>
-
-    </section>
-
-    <!-- displayed at the bottom of the page; last n entries of the search history -->
-    <section id="search-panel">
-      <div id="searchHistory"></div>
+      <div id="dogPanel"></div>
     </section>
 
   </main>
