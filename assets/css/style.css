@@ -33,15 +33,12 @@ header {
 
 #mainPanel {
     background-color: blue;
-    display: none;
 }
 
 #nyTimesNews {
     background-color: aquamarine;
-    display: none;
 }
 
 #searchHistory {
-    display: none;
     background-color: crimson;
 }
