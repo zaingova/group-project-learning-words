@@ -27,7 +27,6 @@ if (localStorage.getItem("wordSearch")) {
     searchHistoryArray = JSON.parse(localStorage.getItem("wordSearch"));
     var newArr = searchHistoryArray.slice(0, 9);
     newArr.forEach(word => {
-        searchHistory.setAttribute("style", "display:block");
         var listBtn = document.createElement("li");
         var newBtn = document.createElement("button");
         newBtn.textContent = word;
@@ -53,6 +52,7 @@ function formSubmitHandler(event) {
     } else {
         alert("Please enter a word");
     }
+    searchHistory.setAttribute("style", "display:block");
 }
  // Fetch current word
 function getWord(word, addToLocalStorage = true) {
@@ -102,10 +102,15 @@ function displayWord(data) {
     var wordEx = document.querySelector('#example');
     var wordType = document.querySelector('#wordType');
     var definitionPrint = data[0].meanings[0].definitions[0].definition;
-    var soundPrint = data[0].phonetics[1].sourceUrl;
     var typePrint = data[0].meanings[0].partOfSpeech;
     wordDef.textContent = "Meanings: " + definitionPrint;
-    wordSound.textContent = "Phonetic: " + soundPrint;
+    if (data[0].phonetics[0].audio != '') {
+        wordSound.setAttribute("src", data[0].phonetics[0].audio);
+    } else if (data[0].phonetics[0].audio == '') {
+        wordSound.setAttribute("src", data[0].phonetics[1].audio);
+    } else if (data[0].phonetics[0].audio == '' && data[0].phonetics[1].audio == '') {
+        wordSound.setAttribute("src", data[0].phonetics[2].audio);
+    }
     wordType.textContent = 'Part of speech: ' + typePrint;
 }
 
