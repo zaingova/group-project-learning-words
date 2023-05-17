@@ -5,12 +5,12 @@ var searchHistory = document.querySelector("#searchHistory");
 
 var apiCallFree = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
- window.onload = function () {
-     inputSearch.addEventListener("keypress", function(event) {
-         if (event.keyCode === 13) {
-             formSubmitHandler(event);
-         }
-     });
+window.onload = function () {
+    inputSearch.addEventListener("keypress", function (event) {
+        if (event.keyCode === 13) {
+            formSubmitHandler(event)
+        }
+    })
 }
 
 /*var searchHistoryArray;
@@ -80,7 +80,7 @@ function getWord(word, addToLocalStorage = true) {
 
 
     // Display word 
-    var displayWord = function(content) {
+    var displayWord = function (content) {
         var temperatureEl = document.querySelector("#temperature");
         var descriptionEl = document.querySelector("#description");
         var humidityEl = document.querySelector("#humidity");
@@ -96,10 +96,19 @@ function getWord(word, addToLocalStorage = true) {
 
         getForecast(content.name)
     }
+
+
+
+
+
+
+
+
+
+
+
 }
 
-// inputBtn.addEventListener("click", function(event) {
-//     formSubmitHandler(event);
-// });
+inputBtn.addEventListener("click", formSubmitHandler);
 
 
