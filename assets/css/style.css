@@ -5,7 +5,7 @@
     --materialGray: #a5a5a5;
     --materialWhite: #fff;
     --materialBlue: #2061da;
-    --materialRed: #e6374f;
+    --materialRed: #4a28c4;
     --materialGreen: #159c37;
 }
 
@@ -64,6 +64,18 @@ header {
     width: 100%;
     display: none;
     background-color: var(--panelBG);
+    list-style-type: none;
+}
+
+#searchHistory ul {
+    text-decoration: none;
+    padding: 30px 30px 20px 25px;
+}
+
+#searchHistory button {
+    background-color: #2061da;
+    margin: 10px;
+    font-size: 25px;
 }
 
 #searchResult {
