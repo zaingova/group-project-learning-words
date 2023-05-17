@@ -2,6 +2,10 @@
     --teal: #000000;
 }
 
+audio {
+    align-items: center;
+}
+
 body {
     background-color: #d6d6d6;
 }
@@ -32,13 +36,21 @@ header {
 }
 
 #mainPanel {
-    background-color: blue;
+    background-color: rgb(53, 53, 53);
+    display: none;
+}
+
+#mainPanel p {
+    color: white;
+    text-align: center;
 }
 
 #nyTimesNews {
     background-color: aquamarine;
+    display: none;
 }
 
 #searchHistory {
+    display: none;
     background-color: crimson;
 }
