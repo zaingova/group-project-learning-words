@@ -4,10 +4,12 @@ var searchResult = document.querySelector("#searchResult")
 var searchHistory = document.querySelector("#searchHistory");
 var ulSearch = document.querySelector('#ulSearch');
 var wordInput = document.querySelector('#word');
+var mainPanel = document.querySelector('#mainPanel');
 
 
 var apiCallFree = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 var apiCallWord = 'https://wordsapiv1.p.mashape.com/words/';
+var synonyms = '/synonyms'
 
 window.onload = function () {
     inputSearch.addEventListener("keypress", function (event) {
@@ -53,9 +55,10 @@ function formSubmitHandler(event) {
             if (response.ok) {
                 response.json().then(function (data) {
                     var wordComplete = data[0].word;
+                    mainPanel.style.display = 'block';
                     wordInput.textContent = wordComplete;
                     console.log(data)
-
+                    displayWord(data)
                     if (addToLocalStorage) {
                         searchHistoryArray.unshift(wordComplete);
                         localStorage.setItem("wordSearch", JSON.stringify(searchHistoryArray));
@@ -77,7 +80,23 @@ function formSubmitHandler(event) {
             alert("Unable to connect to Free Dictionary");
         });
 
+    
 
+        var displayWord = function (data) {
+        var wordSound = document.querySelector('#sound');
+        var wordDef = document.querySelector('#definition');
+        var wordEx = document.querySelector('#example');
+        var wordType = document.querySelector('#wordType');
+        var definitionPrint = data[0].meanings[0].definitions[0].definition;
+        var soundPrint = data[0].phonetics[1].sourceUrl;
+        /// var examplePrint = data[0].meaning[0].definition[0];
+        var typePrint = data[0].meanings[0].partOfSpeech;
+        wordDef.textContent = "Meanings: " + definitionPrint;
+        wordSound.textContent = "Phonetic: " + soundPrint;
+        wordType.textContent = 'Part of speech: ' + typePrint; 
+    
+        getNextApi(data[0].word)
+        }
     }
 
 
@@ -86,6 +105,7 @@ function formSubmitHandler(event) {
     var apiUrl2 = apiCallWord + word;
     fetch(apiUrl2)
       .then(function (response1) {
+        console.log(response1)
         if (response1.ok) {
           response1.json().then(function (dataFor) {
             displaySynon(dataFor);
@@ -95,7 +115,7 @@ function formSubmitHandler(event) {
         }
       })
       .catch(function (error) {
-        alert("Unable to connect to WordAPI");
+        alert("Unable to connect to Word Api");
       });
 
 
@@ -121,4 +141,4 @@ function formSubmitHandler(event) {
         //getForecast(content.name)
 }}
 
-
+inputBtn.addEventListener("click", formSubmitHandler);
