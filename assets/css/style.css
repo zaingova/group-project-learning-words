@@ -1,11 +1,12 @@
 :root {
     --materialBlack: #000000;
     --almostBlack: #2b2b2b;
+    --panelBG: #353535;
+    --materialGray: #a5a5a5;
+    --materialWhite: #fff;
     --materialBlue: #2061da;
     --materialRed: #e6374f;
     --materialGreen: #159c37;
-    --materialGray: #a5a5a5;
-    --materialWhite: #fff;
 }
 
 * {
@@ -43,7 +44,7 @@ header {
 }
 
 #mainPanel {
-    background-color: rgb(53, 53, 53);
+    background-color: var(--panelBG);
     display: none;
 
     position: relative;
@@ -58,8 +59,11 @@ header {
 }
 
 #searchHistory {
+    position: absolute;
+    top: 60vh;
+    width: 100%;
     display: none;
-    background-color: crimson;
+    background-color: var(--panelBG);
 }
 
 #searchResult {
@@ -72,6 +76,7 @@ header {
 
     background-color: var(--materialBlue);
 }
+
 
 #word {
     font-size: 30px;
