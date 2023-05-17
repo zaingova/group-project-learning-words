@@ -5,12 +5,12 @@ var searchHistory = document.querySelector("#searchHistory");
 
 var apiCallFree = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 
-window.onload = function () {
-    inputSearch.addEventListener("keypress", function (event) {
-        if (event.keyCode === 13) {
-            formSubmitHandler(event)
-        }
-    })
+ window.onload = function () {
+     inputSearch.addEventListener("keypress", function(event) {
+         if (event.keyCode === 13) {
+             formSubmitHandler(event);
+         }
+     });
 }
 
 /*var searchHistoryArray;
@@ -55,7 +55,7 @@ function getWord(word, addToLocalStorage = true) {
                     var wordInput = document.createElement("h3");
                     wordInput.textContent = wordComplete;
                     searchResult.appendChild(wordInput);
-console.log(data)
+                    console.log(data)
                     if (addToLocalStorage) {
                         searchHistoryArray.unshift(wordComplete);
                         localStorage.setItem("wordSearch", JSON.stringify(searchHistoryArray));
@@ -78,6 +78,7 @@ console.log(data)
             alert("Unable to connect to Free Dictionary");
         });
 
+<<<<<<< HEAD:assets/js/script.js
     }
 // Display word 
 /*
@@ -106,8 +107,35 @@ var displayWord = function (content) {
 
 
 
+=======
+
+    // Display word 
+    var displayWord = function(content) {
+        var temperatureEl = document.querySelector("#temperature");
+        var descriptionEl = document.querySelector("#description");
+        var humidityEl = document.querySelector("#humidity");
+
+        var temperaturePrint = content.main.temp;
+        var descriptionPrint = content.weather[0].main;
+        var humidityPrint = content.main.humidity;
+        outputSearch.setAttribute("style", "border:rgb(180, 215, 180) dashed 2px!important; border-radius:4px; align-items:center; padding:0px 5px 15px 5px");
+        temperatureEl.textContent = "Temperature: " + temperaturePrint + " °C";
+        descriptionEl.textContent = "Weather: " + descriptionPrint;
+        humidityEl.textContent = "Humidity: " + humidityPrint + " %";
+>>>>>>> 9c8e84b25843e5c14c196a3c4a69a9e68f9a1f45:assets/js/style.js
 
 
+        getForecast(content.name)
+    }
 }
+<<<<<<< HEAD:assets/js/script.js
 */
 inputBtn.addEventListener("click", formSubmitHandler);
+=======
+
+// inputBtn.addEventListener("click", function(event) {
+//     formSubmitHandler(event);
+// });
+
+
+>>>>>>> 9c8e84b25843e5c14c196a3c4a69a9e68f9a1f45:assets/js/style.js
