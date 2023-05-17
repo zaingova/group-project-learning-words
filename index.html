@@ -16,19 +16,21 @@
 <body>
 
   <!-- header + navbar panel: includes search bar and navigation bar -->
-  <header>
-    <h1 class="text-center title">Learning Words</h1>
+  <header class="justify-content-center">
     <div class="row">
       <form class="col-lg float-left" role="search">
         <input id="wordEnter" class="form-control" type="search" placeholder="Enter Word: " aria-label="Search">
         <button id="submitBtn" class="" type="submit">Search</button>
       </form>
 
-      <div class="" style="width:50%; display:inline-bl">
+      <div class="" style="width:50%">
         <button href="#mainPanel" class="btn btn-light" style="width:25%" type="submit">Word Information</button>
-        <button href="#searchHistoryPanel" class="btn btn-light" style="width:25%" type="submit">Search History</button>
+        <button href="#searchHistoryPanel" id=searchButton2 class="btn btn-light" style="width:25%" type="submit">Search History</button>
         <button class="btn btn-light" style="width:25%" type="submit">Generate Dog</button>
       </div>
+
+      <h1 class="text-center title">Learning Words</h1>
+
     </div>
   </header>
 
