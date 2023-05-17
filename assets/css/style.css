@@ -2,10 +2,6 @@
     --teal: #000000;
 }
 
-audio {
-    align-items: center;
-}
-
 body {
     background-color: #d6d6d6;
 }
@@ -42,7 +38,6 @@ header {
 
 #mainPanel p {
     color: white;
-    text-align: center;
 }
 
 #nyTimesNews {
@@ -53,4 +48,8 @@ header {
 #searchHistory {
     display: none;
     background-color: crimson;
+}
+
+#searchResult {
+    align-items: center;
 }
