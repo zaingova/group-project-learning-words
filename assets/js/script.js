@@ -23,17 +23,16 @@ window.onload = function () {
 if (localStorage.getItem("wordSearch")) {
     searchHistoryArray = JSON.parse(localStorage.getItem("wordSearch"));
     var newArr = searchHistoryArray.slice(0, 7);
-    newArr.forEach(word => {
+    //newArr.forEach(word => {
         var listBtn = document.createElement("li");
         var newBtn = document.createElement("button");
         newBtn.textContent = word;
         listBtn.appendChild(newBtn);
-        ulSearch.appendChild(listBtn);
+       // ulSearch.appendChild(listBtn);
         newBtn.onclick = function () {
             getWord(word, false);
         }
-    });
-} else {
+    } else {
     searchHistoryArray = [];
 }
 
