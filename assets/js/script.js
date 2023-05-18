@@ -47,6 +47,7 @@ function formSubmitHandler(event) {
     var word = inputSearch.value;
     if (word) {
         getWord(word);
+        getSynonym(word);
         inputSearch.value = "";
     } else {
         alert("Please enter a word");
@@ -109,6 +110,26 @@ function getWord(word, addToLocalStorage = true) {
         });
 }
 
+function getSynonym (word){
+fetch('https://api.api-ninjas.com/v1/thesaurus?word=' + word, {
+  headers: {
+    'X-Api-Key': 'Eqn6iIwGxn1CRPg74znFPw==4cZzEWjtkFHJ2qcX'
+  }
+}) .then(function (response) {
+    if (response.ok) {
+        response.json().then(function (data) {
+            console.log(data);
+            displaySynon(data);
+        });
+    } else {
+        alert("Error: " + response.statusText);
+    }
+})
+.catch(function (error) {
+    alert("Unable to connect to Ninja Api");
+});
+}
+
 // Display word 
 
 function displayWord(data) {
@@ -136,16 +157,27 @@ function displayWord(data) {
         if (src != '') {
             break;
         }
-    }
+    } }
 
     // sets the audio src to the local src variable
-    wordSound.setAttribute("src", src);
+    //wordSound.setAttribute("src", src);
 
-    wordType.textContent = 'Part of speech: ' + typePrint;
+    //wordType.textContent = 'Part of speech: ' + typePrint;
 
     // GABRIEL: I moved this down here so the search history loads AFTER the results are displayed
     searchHistory.setAttribute("style", "display:block");
+
+
+    function displaySynon(data) {
+        var wordSynonym = document.querySelector('#synonym');
+        var synonymPrint = [...data.synonyms.values()];
+        var allSynonyms = synonymPrint.join (', ');
+        wordSynonym.textContent = "Synonyms: " + allSynonyms;
+       
 }
+
+
+
 
 //Trigger
 inputBtn.addEventListener("click", formSubmitHandler);
@@ -201,3 +233,22 @@ var getNextApi = function (word) {
     }
 
       //getForecast(content.name)}*/
+
+
+
+/*
+    var word = 'bright'
+$.ajax({
+    method: 'GET',
+    url: 'https://api.api-ninjas.com/v1/thesaurus?word=' + word,
+    headers: { 'X-Api-Key': 'Eqn6iIwGxn1CRPg74znFPw==4cZzEWjtkFHJ2qcX'},
+    contentType: 'application/json',
+    success: function(result) {
+        console.log(result);
+    },
+    error: function ajaxError(jqXHR) {
+        console.error('Error: ', jqXHR.responseText);
+    }
+});
+*/
+
