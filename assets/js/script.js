@@ -1,6 +1,6 @@
 //Set the variables in order to select the HTML Element 
 var inputSearch = document.querySelector("#wordEnter");
-var randomBtn = document.querySelector("randWordBtn");
+var randomBtn = document.querySelector("#randWordBtn");
 var inputBtn = document.querySelector("#submitBtn");
 var searchResult = document.querySelector("#searchResult")
 var searchHistory = document.querySelector("#searchHistory");
@@ -8,7 +8,7 @@ var ulSearch = document.querySelector('#ulSearch');
 var wordInput = document.querySelector('#word');
 var mainPanel = document.querySelector('#mainPanel');
 
-// API variables
+// API variables - Free Dictionary and Words API from NINJA Library
 var apiCallFree = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 var apiCallWord = 'https://wordsapiv1.p.mashape.com/words/';
 var synonyms = '/synonyms';
@@ -41,27 +41,32 @@ if (localStorage.getItem("wordSearch")) {
     searchHistoryArray = [];
 }
 
-/*
-function getRamdon () {
-$.ajax({
-    method: 'GET',
-    url: 'https://api.api-ninjas.com/v1/randomword',
-    headers: { 'X-Api-Key': 'Eqn6iIwGxn1CRPg74znFPw==4cZzEWjtkFHJ2qcX'},
-    contentType: 'application/json',
-    success: function(result) {
-        var randomWord = result.word;
-        console.log(randomWord)
-    },
-    error: function ajaxError(jqXHR) {
-        console.error('Error: ', jqXHR.responseText);
-    }
+
+
+// Set button for pick a random - using AJAX for Random word API from NINJA Library- word and set into the input element
+
+randomBtn.addEventListener("click", function (event){  
+    event.preventDefault()
+    $.ajax({
+        method: 'GET',
+        url: 'https://api.api-ninjas.com/v1/randomword',
+        headers: { 'X-Api-Key': 'Eqn6iIwGxn1CRPg74znFPw==4cZzEWjtkFHJ2qcX'},
+        contentType: 'application/json',
+        success: function(result) {
+            var randomWord = result.word;
+            console.log(randomWord)
+            inputSearch.value= randomWord;
+        },
+        error: function ajaxError(jqXHR) {
+            console.error('Error: ', jqXHR.responseText);
+        }
+    }) 
+    
+    
 });
-}
+    
 
-randomBtn.addEventListener("click", getRamdon);
-
-*/
-/// Principal trigger 
+/// Principal trigger for search button
 function formSubmitHandler(event) {
     event.preventDefault();
     var word = inputSearch.value;
@@ -74,6 +79,7 @@ function formSubmitHandler(event) {
     }
 }
 
+//Word validation
 function wordValid(data) {
     fetch(apiUrl)
         .then(function (response) {
@@ -87,7 +93,7 @@ function wordValid(data) {
         })
 }
 
-// Fetch current word
+// Fetch word input element
 function getWord(word, addToLocalStorage = true) {
     var apiUrl = apiCallFree + word;
     fetch(apiUrl)
@@ -128,6 +134,7 @@ function getWord(word, addToLocalStorage = true) {
         });
 }
 
+// Second fetch to word API
 function getSynonym(word) {
     fetch('https://api.api-ninjas.com/v1/thesaurus?word=' + word, {
         headers: {
@@ -155,15 +162,28 @@ function displayWord(data) {
     var wordDef = document.querySelector('#definition');
     var wordEx = document.querySelector('#example');
     var wordType = document.querySelector('#wordType');
+    
+    //Print definition
     var definitionPrint = data[0].meanings[0].definitions[0].definition;
+    wordDef.textContent = "Meaning: " + definitionPrint;
+
+    //Print type of word
     var typePrint = data[0].meanings[0].partOfSpeech;
-    wordDef.textContent = "Meanings: " + definitionPrint;
+    wordType.textContent = 'Part of speech: ' + typePrint;
+
+    //Print URL for more info about the word
+    var examplePrint = data[0].sourceUrls[0];
+    wordEx.setAttribute("href", examplePrint);
+    wordEx.textContent= examplePrint;
+    
 
     var src = '';
 
     // if there is NO audio data...
     if (((data[0].phonetics).length) == 0) {
-        wordSound.setAttribute("src", '');
+        wordSound.style.display= "none"; 
+        wordSound.setAttribute("src", '')
+        ;
     }
 
     // if there IS audio data, loop through all phonetic indicies
@@ -181,7 +201,7 @@ function displayWord(data) {
     // sets the audio src to the local src variable
     wordSound.setAttribute("src", src);
 
-    wordType.textContent = 'Part of speech: ' + typePrint;
+    
 
     // GABRIEL: I moved this down here so the search history loads AFTER the results are displayed
     searchHistory.setAttribute("style", "display:block");
