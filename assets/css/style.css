@@ -170,6 +170,7 @@ header {
     background-color: var(--almostBlack);
     margin: 10px;
     font-size: 25px;
+    padding: 20px;
 }
 
 #searchResult {
