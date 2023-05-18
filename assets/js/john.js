@@ -17,7 +17,7 @@ searchButton.addEventListener('click', () => {
 
       // Create an image element
       const imageElement = document.createElement('img');
-      imageElement.className = 'centered'; // Apply a CSS class for centering
+      //imageElement.className = 'centered'; // Apply a CSS class for centering
 
       // Set maximum width and height for the image
       imageElement.style.maxWidth = '400px';

@@ -12,15 +12,14 @@ var apiCallFree = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 var apiCallWord = 'https://wordsapiv1.p.mashape.com/words/';
 var synonyms = '/synonyms';
 
-  /// Keypress event in search bar
+/// Keypress event in search bar
 inputSearch.addEventListener("keypress", function (event) {
     if (event.keyCode === 13) {
         formSubmitHandler(event);
     }
 });
 
-
-  // Get search history from localStorage
+// Get search history from localStorage
 var searchHistoryArray;
 
 if (localStorage.getItem("wordSearch")) {
@@ -42,7 +41,7 @@ if (localStorage.getItem("wordSearch")) {
 }
 
 
-  /// Principal trigger 
+/// Principal trigger 
 function formSubmitHandler(event) {
     event.preventDefault();
     var word = inputSearch.value;
@@ -52,9 +51,22 @@ function formSubmitHandler(event) {
     } else {
         alert("Please enter a word");
     }
-    searchHistory.setAttribute("style", "display:block");
 }
- // Fetch current word
+
+function wordValid(data) {
+    fetch(apiUrl)
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    // if (data[0].) {
+
+                    // }
+                })
+            }
+        })
+}
+
+// Fetch current word
 function getWord(word, addToLocalStorage = true) {
     var apiUrl = apiCallFree + word;
     fetch(apiUrl)
@@ -70,18 +82,21 @@ function getWord(word, addToLocalStorage = true) {
                         // Add word to search history array and save to localStorage
                         searchHistoryArray.unshift(wordComplete);
                         localStorage.setItem("wordSearch", JSON.stringify(searchHistoryArray));
-                         // Add word to search history list
+                        // Add word to search history list
                         var newBtn2 = document.createElement("button");
                         newBtn2.textContent = wordComplete;
                         ulSearch.appendChild(newBtn2);
-                             // Only show 10 elements in  history-search
+                        // Only show 10 elements in  history-search
                         if (searchHistory.children.length > 9) {
                             searchHistory.removeChild(searchHistory.lastChild);
                         }
                         var listBtn = document.createElement("li");
+                        newBtn2.classList.add("col");
+                        newBtn2.classList.add("s3");
                         searchHistory.prepend(listBtn);
                         newBtn2.onclick = function () {
                             getWord(word, false);
+
                         };
                     }
                 });
@@ -104,21 +119,36 @@ function displayWord(data) {
     var definitionPrint = data[0].meanings[0].definitions[0].definition;
     var typePrint = data[0].meanings[0].partOfSpeech;
     wordDef.textContent = "Meanings: " + definitionPrint;
-    if (data[0].phonetics[0].audio != '') {
-        wordSound.setAttribute("src", data[0].phonetics[0].audio);
-    } else if (data[0].phonetics[0].audio == '') {
-        wordSound.setAttribute("src", data[0].phonetics[1].audio);
-    } else if (data[0].phonetics[0].audio == '' && data[0].phonetics[1].audio == '') {
-        wordSound.setAttribute("src", data[0].phonetics[2].audio);
+
+    var src = '';
+
+    // if there is NO audio data...
+    if (((data[0].phonetics).length) == 0) {
+        wordSound.setAttribute("src", '');
     }
+
+    // if there IS audio data, loop through all phonetic indicies
+    for (var i = 0; i < (data[0].phonetics).length; i++) {
+        // on each iteration, local src var is made to equal the audio data
+        src = data[0].phonetics[i].audio;
+
+        // as soon as the audio isnt empty, break out of the loop
+        if (src != '') {
+            break;
+        }
+    }
+
+    // sets the audio src to the local src variable
+    wordSound.setAttribute("src", src);
+
     wordType.textContent = 'Part of speech: ' + typePrint;
+
+    // GABRIEL: I moved this down here so the search history loads AFTER the results are displayed
+    searchHistory.setAttribute("style", "display:block");
 }
 
 //Trigger
 inputBtn.addEventListener("click", formSubmitHandler);
-
-
-
 
 /*get Next API
 var getNextApi = function (word) {
@@ -143,7 +173,6 @@ var getNextApi = function (word) {
     var displaySynon = function (dataFor) {
       var day1 = document.querySelector("#day-1");
       
- 
       forecastTitle.textContent = "5-Day Forecast"
  
       var day1Temp = dataFor.list[0].main.temp;
@@ -152,7 +181,6 @@ var getNextApi = function (word) {
       var day1Wind = dataFor.list[0].wind.speed;
       var day1Date = dataFor.list[0].dt_txt;
       var day1Humidity = dataFor.list[0].main.humidity;
-
 
         var displayWord = function (data) {
         var wordSound = document.querySelector('#sound');
@@ -171,7 +199,5 @@ var getNextApi = function (word) {
         getNextApi(data[0].word)
         }
     }
-
-
 
       //getForecast(content.name)}*/
