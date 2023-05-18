@@ -47,7 +47,6 @@ searchButton.addEventListener('click', () => {
 });
 
 // To activate the Cat images  
-
 const searchButton2 = document.getElementById('catBtn');
 
 searchButton2.addEventListener('click', () => {
