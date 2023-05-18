@@ -5,9 +5,10 @@
     --materialGray: #a5a5a5;
     --materialWhite: #fff;
     --materialBlue: #2061da;
-    --borderBlue: #1a4caa;
+    --borderBlue: #143a81;
     --materialRed: #c9244d;
     --materialdarkerRed: #ac1e42;
+    --materialDarkerBlue: #174eb4;
     --borderRed: #8b1734;
     --descriptionDivider: #202020;
     --descriptionText: #585858;
@@ -90,18 +91,27 @@ img {
     border-right: 4px solid var(--borderRed);
     border-top: 4px solid var(--borderRed);
     border-bottom: 4px solid var(--borderRed);
-    height: 57px;
-    width: 25%;
-    background-color: var(--materialdarkerRed);
     border-radius: 0 30px 30px 0;
+    height: 57px;
+    width: 16.6%;
+    background-color: var(--materialdarkerRed);
+    
 }
 
 #dogBtn {
     border-top: 4px solid var(--borderRed);
     border-bottom: 4px solid var(--borderRed);
     height: 57px;
-    width: 25%;
+    width: 16.6%;
     background-color: var(--materialRed);
+}
+
+#randWordBtn {
+    border-top: 4px solid var(--borderBlue);
+    border-bottom: 4px solid var(--borderBlue);
+    height: 57px;
+    width: 16.6%;
+    background-color: var(--materialDarkerBlue);
 }
 
 #mainPanel {
@@ -122,6 +132,7 @@ img {
     justify-content: center;
     align-items: center;
     padding: 1px;
+    width: ;
 }
 
 #catPanel {
