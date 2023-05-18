@@ -163,7 +163,7 @@ function displayWord(data) {
     // sets the audio src to the local src variable
     wordSound.setAttribute("src", src);
 
-    //wordType.textContent = 'Part of speech: ' + typePrint;
+    wordType.textContent = 'Part of speech: ' + typePrint;
 
     // GABRIEL: I moved this down here so the search history loads AFTER the results are displayed
     searchHistory.setAttribute("style", "display:block");
