@@ -26,6 +26,7 @@ searchButton.addEventListener('click', (event) => {
       imageElement.style.maxHeight = '400px';
 
       // Set the source and alt attributes
+      imageElement.classList.add("animalImage");
       imageElement.src = imageUrl;
       imageElement.alt = "dogImage";
 
@@ -38,7 +39,7 @@ searchButton.addEventListener('click', (event) => {
         breedNameElement.textContent = `Breed: ${breed}`;
         dogPanelDiv.appendChild(breedNameElement);
       } else {
-        breedNameElement.textContent = "Breed: undefined";
+        breedNameElement.textContent = "Breed: Undefined";
         dogPanelDiv.appendChild(breedNameElement);
       }
 
@@ -67,12 +68,14 @@ searchButton2.addEventListener('click', (event) => {
 
       // Create an image element
       const imageElement = document.createElement('img');
+      const breedNameElement = document.createElement('p');
 
       // Set maximum width and height for the image
       imageElement.style.maxWidth = '500px';
       imageElement.style.maxHeight = '400px';
 
       // Set the source and alt attributes
+      imageElement.classList.add("animalImage");
       imageElement.src = imageUrl;
       imageElement.alt = "catImage";
 
@@ -81,9 +84,11 @@ searchButton2.addEventListener('click', (event) => {
       catPanelDiv.innerHTML = '';
 
       // Append the breed name and image to the div
-      if (breed) {
-        const breedNameElement = document.createElement('p');
+      if (breed !== undefined) {
         breedNameElement.textContent = `Breed: ${breed}`;
+        catPanelDiv.appendChild(breedNameElement);
+      } else {
+        breedNameElement.textContent = "Breed: Undefined";
         catPanelDiv.appendChild(breedNameElement);
       }
 

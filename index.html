@@ -56,7 +56,7 @@
     <!-- main panel section; includes the returned results from the inputted word and some daily news -->
     <section id="mainPanel" class="row">
       <!-- search results; elements include: word name, phonetics, definition, an example in a sentance, and the word type (noun, verb, adverb, etc) -->
-      <div id="searchResult" class="col s4">
+      <div id="searchResult" class="col s6">
         <p id="word"></p>
         <hr>
         <audio id="sound" controls autoplay muted>
@@ -71,8 +71,10 @@
         <a id="example" href="#" target="_blank"> </a>
       </div>
       <!-- animal images panel -->
-      <div id="dogPanel" class="col s4"></div>
-      <div id="catPanel" class="col s4"></div>
+      <div class="imageSection col s6">
+        <div id="dogPanel" class=""></div>
+        <div id="catPanel" class=""></div>
+      </div>
     </section>
   </main>
 
