@@ -20,8 +20,8 @@ searchButton.addEventListener('click', () => {
       //imageElement.className = 'centered'; // Apply a CSS class for centering
 
       // Set maximum width and height for the image
-      imageElement.style.maxWidth = '400px';
-      imageElement.style.maxHeight = '300px';
+      imageElement.style.maxWidth = '500px';
+      imageElement.style.maxHeight = '400px';
 
       // Set the source and alt attributes
       imageElement.src = imageUrl;
@@ -47,7 +47,8 @@ searchButton.addEventListener('click', () => {
 });
 
 // To activate the Cat images  
-const searchButton2 = document.getElementById('catBtn');
+var searchButton2 = document.getElementById('catBtn');
+
 
 searchButton2.addEventListener('click', () => {
   fetch('https://api.thecatapi.com/v1/images/search', {
@@ -66,8 +67,8 @@ searchButton2.addEventListener('click', () => {
       imageElement.className = 'centered'; // Apply a CSS class for centering
 
       // Set maximum width and height for the image
-      imageElement.style.maxWidth = '400px';
-      imageElement.style.maxHeight = '300px';
+      imageElement.style.maxWidth = '500px';
+      imageElement.style.maxHeight = '400px';
 
       // Set the source and alt attributes
       imageElement.src = imageUrl;
