@@ -1,5 +1,5 @@
 :root {
-    --materialBlack: #181818;
+    --materialBlack: #111111;
     --almostBlack: #2b2b2b;
     --panelBG: #353535;
     --materialGray: #a5a5a5;
@@ -125,25 +125,26 @@ img {
 
 #dogPanel {
     display: none;
-    background-color: var(--descriptionText);
+    background-color: var(--panelBG);
     display: block;
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
     align-items: center;
     padding: 1px;
-    width: ;
+    height: 600px;
 }
 
 #catPanel {
     display: none;
-    background-color: var(--descriptionText);
+    background-color: var(--panelBG);
     display: block;
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
     align-items: center;
     padding: 1px;
+    height: 600px;
 }
 
 #searchHistory {

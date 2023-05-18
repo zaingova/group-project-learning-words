@@ -163,6 +163,7 @@ function displayWord(data) {
 
     // if there is NO audio data...
     if (((data[0].phonetics).length) == 0) {
+        wordSound.style.display = "none";
         wordSound.setAttribute("src", '');
     }
 
