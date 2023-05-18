@@ -47,8 +47,7 @@ searchButton.addEventListener('click', () => {
 });
 
 // To activate the Cat images  
-var searchButton2 = document.getElementById('catBtn');
-
+const searchButton2 = document.getElementById('catBtn');
 
 searchButton2.addEventListener('click', () => {
   fetch('https://api.thecatapi.com/v1/images/search', {
