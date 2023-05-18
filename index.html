@@ -56,21 +56,25 @@
     <!-- main panel section; includes the returned results from the inputted word and some daily news -->
     <section id="mainPanel" class="row">
       <!-- search results; elements include: word name, phonetics, definition, an example in a sentance, and the word type (noun, verb, adverb, etc) -->
-      <div id="searchResult" class="col s4">
+      <div id="searchResult" class="col s6">
         <p id="word"></p>
+        <hr>
         <audio id="sound" controls autoplay muted>
           <source src="" type="audio/mpeg">
           Your browser does not support the audio element.
         </audio>
         <p id="definition"></p>
-        <p>More info about this word: </p>
-        <a id="example" href="#" target="_blank"> </a>
         <p id="wordType"></p>
         <p id="synonym"></p>
+        <hr>
+        <p>More info about this word: </p>
+        <a id="example" href="#" target="_blank"> </a>
       </div>
       <!-- animal images panel -->
-      <div id="dogPanel" class="col s4"></div>
-      <div id="catPanel" class="col s4"></div>
+      <div class="imageSection col s6">
+        <div id="dogPanel" class=""></div>
+        <div id="catPanel" class=""></div>
+      </div>
     </section>
   </main>
 
