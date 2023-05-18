@@ -10,6 +10,8 @@ searchButton.addEventListener('click', () => {
       'X-api-Key': 'live_ZJDADQZeNEYecTS1YkdWVsq0kSKBEh6MT4Vbcg4dH4EoquI4ZjyheBEduhxbVHLR',
     }
   })
+
+  console.log(fect)
     .then(response => response.json()) // Parse response as JSON
     .then(data => {
       const breed = data[0]?.breeds[0]?.name;

@@ -139,7 +139,7 @@ function displayWord(data) {
     var wordType = document.querySelector('#wordType');
     var definitionPrint = data[0].meanings[0].definitions[0].definition;
     var typePrint = data[0].meanings[0].partOfSpeech;
-    wordDef.textContent = "Meanings: " + definitionPrint;
+    wordDef.textContent = "Meaning: " + definitionPrint;
 
     var src = '';
 
@@ -171,7 +171,7 @@ function displayWord(data) {
 
 function displaySynon(data) {
     var wordSynonym = document.querySelector('#synonym');
-    var synonymPrint = [...data.synonyms.values()];
+    var synonymPrint = [data.synonyms.values()];
     var allSynonyms = synonymPrint.join(', ');
     wordSynonym.textContent = "Synonyms: " + allSynonyms;
 
