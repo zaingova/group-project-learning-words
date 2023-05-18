@@ -33,15 +33,25 @@
     <div class="container">
       <form class="row" role="search">
         <input id="wordEnter" class="" type="search" style="width:100%" placeholder="Enter Word: " aria-label="Search">
-        
-        <button id="submitBtn" class="btn-large waves-effect waves-light" type="submit"><i class="material-icons right">send</i>Search</button>
+
+        <button id="submitBtn" class="btn-large waves-effect waves-light" type="submit"><i
+            class="material-icons right">send</i>Search</button>
         <button id="dogBtn" class="btn-large waves-effect waves-light" type="submit">Generate DOG</button>
         <button id="catBtn" class="btn-large waves-effect waves-light" type="submit">Generate CAT</button>
       </form>
     </div>
   </header>
 
+  <!-- displayed at the bottom of the page; last n entries of the search history -->
   <main>
+    <div class="searchSection row">
+      <h4 class="searchHistoryTitle">Search History</h4>
+      <div id="searchHistory">
+        <ul id="ulSearch">
+        </ul>
+      </div>
+    </div>
+
     <!-- main panel section; includes the returned results from the inputted word and some daily news -->
     <section id="mainPanel" class="row">
       <!-- search results; elements include: word name, phonetics, definition, an example in a sentance, and the word type (noun, verb, adverb, etc) -->
@@ -59,19 +69,7 @@
       <!-- animal images panel -->
       <div id="dogPanel" class="col s4"></div>
       <div id="catPanel" class="col s4"></div>
-    </section> 
-
-    <!-- displayed at the bottom of the page; last n entries of the search history -->
-
-    <div class="searchSection">
-      <h4 class="searchHistoryTitle">Search History</h4>
-      <div id="searchHistory">
-        <ul id="ulSearch">
-        </ul>
-      </div>
-
-    </div>
-
+    </section>
   </main>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
