@@ -110,24 +110,24 @@ function getWord(word, addToLocalStorage = true) {
         });
 }
 
-function getSynonym (word){
-fetch('https://api.api-ninjas.com/v1/thesaurus?word=' + word, {
-  headers: {
-    'X-Api-Key': 'Eqn6iIwGxn1CRPg74znFPw==4cZzEWjtkFHJ2qcX'
-  }
-}) .then(function (response) {
-    if (response.ok) {
-        response.json().then(function (data) {
-            console.log(data);
-            displaySynon(data);
+function getSynonym(word) {
+    fetch('https://api.api-ninjas.com/v1/thesaurus?word=' + word, {
+        headers: {
+            'X-Api-Key': 'Eqn6iIwGxn1CRPg74znFPw==4cZzEWjtkFHJ2qcX'
+        }
+    }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (data) {
+                console.log(data);
+                displaySynon(data);
+            });
+        } else {
+            alert("Error: " + response.statusText);
+        }
+    })
+        .catch(function (error) {
+            alert("Unable to connect to Ninja Api");
         });
-    } else {
-        alert("Error: " + response.statusText);
-    }
-})
-.catch(function (error) {
-    alert("Unable to connect to Ninja Api");
-});
 }
 
 // Display word 
@@ -157,7 +157,8 @@ function displayWord(data) {
         if (src != '') {
             break;
         }
-    } }
+    }
+
 
     // sets the audio src to the local src variable
     wordSound.setAttribute("src", src);
@@ -166,14 +167,15 @@ function displayWord(data) {
 
     // GABRIEL: I moved this down here so the search history loads AFTER the results are displayed
     searchHistory.setAttribute("style", "display:block");
+}
+
+function displaySynon(data) {
+    var wordSynonym = document.querySelector('#synonym');
+    var synonymPrint = [...data.synonyms.values()];
+    var allSynonyms = synonymPrint.join(', ');
+    wordSynonym.textContent = "Synonyms: " + allSynonyms;
 
 
-    function displaySynon(data) {
-        var wordSynonym = document.querySelector('#synonym');
-        var synonymPrint = [...data.synonyms.values()];
-        var allSynonyms = synonymPrint.join (', ');
-        wordSynonym.textContent = "Synonyms: " + allSynonyms;
-       
 }
 
 
