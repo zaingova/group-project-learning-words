@@ -19,9 +19,6 @@ searchButton.addEventListener('click', (event) => {
 
             // Create an image element
             const imageElement = document.createElement('img');
-            console.log(data);
-            imageElement.style.display = "block";
-            //imageElement.className = 'centered'; // Apply a CSS class for centering
 
             // Set maximum width and height for the image
             imageElement.style.maxWidth = '500px';
@@ -29,7 +26,7 @@ searchButton.addEventListener('click', (event) => {
 
             // Set the source and alt attributes
             imageElement.src = imageUrl;
-            imageElement.alt = breed;
+            imageElement.alt = "dogImage";
 
             // Clear the existing content of the div
             const dogPanelDiv = document.getElementById('dogPanel');
@@ -38,7 +35,6 @@ searchButton.addEventListener('click', (event) => {
             // Append the breed name and image to the div
             if (breed) {
                 const breedNameElement = document.createElement('p');
-                breedNameElement.className = 'centered'; // Apply a CSS class for centering
                 breedNameElement.textContent = `Breed: ${breed}`;
                 dogPanelDiv.appendChild(breedNameElement);
             }
@@ -68,7 +64,6 @@ searchButton2.addEventListener('click', (event) => {
 
             // Create an image element
             const imageElement = document.createElement('img');
-            imageElement.className = 'centered'; // Apply a CSS class for centering
 
             // Set maximum width and height for the image
             imageElement.style.maxWidth = '500px';
@@ -76,7 +71,7 @@ searchButton2.addEventListener('click', (event) => {
 
             // Set the source and alt attributes
             imageElement.src = imageUrl;
-            imageElement.alt = breed;
+            imageElement.alt = "catImage";
 
             // Clear the existing content of the div
             const catPanelDiv = document.getElementById('catPanel');
@@ -85,7 +80,6 @@ searchButton2.addEventListener('click', (event) => {
             // Append the breed name and image to the div
             if (breed) {
                 const breedNameElement = document.createElement('p');
-                breedNameElement.className = 'centered'; // Apply a CSS class for centering
                 breedNameElement.textContent = `Breed: ${breed}`;
                 catPanelDiv.appendChild(breedNameElement);
             }
