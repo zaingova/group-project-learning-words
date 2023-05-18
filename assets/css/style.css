@@ -54,7 +54,6 @@ header {
     position: relative;
     top: 30vh;
     height: 200%;
-
     padding: 30px;
 }
 
@@ -64,18 +63,17 @@ header {
     margin-left: auto;
     margin-right: auto;
     height: 100%;
-    width: 100%;
+    width: 70%;
 }
-
 
 #dogPanel {
     background-color: aquamarine;
     display: flex;
-    position: absolute; top: 20%; right: 30%;
+    position: absolute; top: 20%; right: 25%;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    width: 30%;
+    padding: 1px;
+    width: 20%;
     height: 70%;
 }
 
@@ -85,8 +83,8 @@ header {
     position: absolute; top: 20%; right: 2%;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    width: 30%;
+    padding: 1px;
+    width: 20%;
     height: 70%;
 }
 
@@ -108,7 +106,6 @@ header {
 
     background-color: var(--materialBlue);
 }
-
 
 #word {
     font-size: 30px;

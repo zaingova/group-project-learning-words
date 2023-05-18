@@ -20,8 +20,8 @@ searchButton.addEventListener('click', () => {
       imageElement.className = 'centered'; // Apply a CSS class for centering
 
       // Set maximum width and height for the image
-      imageElement.style.maxWidth = '300px';
-      imageElement.style.maxHeight = '300px';
+      imageElement.style.maxWidth = '500px';
+      imageElement.style.maxHeight = '400px';
 
       // Set the source and alt attributes
       imageElement.src = imageUrl;
@@ -67,8 +67,8 @@ searchButton2.addEventListener('click', () => {
       imageElement.className = 'centered'; // Apply a CSS class for centering
 
       // Set maximum width and height for the image
-      imageElement.style.maxWidth = '300px';
-      imageElement.style.maxHeight = '300px';
+      imageElement.style.maxWidth = '500px';
+      imageElement.style.maxHeight = '400px';
 
       // Set the source and alt attributes
       imageElement.src = imageUrl;
