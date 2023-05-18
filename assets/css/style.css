@@ -163,6 +163,10 @@ img {
     font-size: 25px;
 }
 
+#searchResult {
+    padding-right: 60px;
+}
+
 #submitBtn {
     border-left: 4px solid var(--borderBlue);
     border-top: 4px solid var(--borderBlue);

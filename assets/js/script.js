@@ -45,26 +45,26 @@ if (localStorage.getItem("wordSearch")) {
 
 // Set button for pick a random - using AJAX for Random word API from NINJA Library- word and set into the input element
 
-randomBtn.addEventListener("click", function (event){  
+randomBtn.addEventListener("click", function (event) {
     event.preventDefault()
     $.ajax({
         method: 'GET',
         url: 'https://api.api-ninjas.com/v1/randomword',
-        headers: { 'X-Api-Key': 'Eqn6iIwGxn1CRPg74znFPw==4cZzEWjtkFHJ2qcX'},
+        headers: { 'X-Api-Key': 'Eqn6iIwGxn1CRPg74znFPw==4cZzEWjtkFHJ2qcX' },
         contentType: 'application/json',
-        success: function(result) {
+        success: function (result) {
             var randomWord = result.word;
             console.log(randomWord)
-            inputSearch.value= randomWord;
+            inputSearch.value = randomWord;
         },
         error: function ajaxError(jqXHR) {
             console.error('Error: ', jqXHR.responseText);
         }
-    }) 
-    
-    
+    })
+
+
 });
-    
+
 
 /// Principal trigger for search button
 function formSubmitHandler(event) {
@@ -162,7 +162,7 @@ function displayWord(data) {
     var wordDef = document.querySelector('#definition');
     var wordEx = document.querySelector('#example');
     var wordType = document.querySelector('#wordType');
-    
+
     //Print definition
     var definitionPrint = data[0].meanings[0].definitions[0].definition;
     wordDef.textContent = "Meaning: " + definitionPrint;
@@ -174,35 +174,41 @@ function displayWord(data) {
     //Print URL for more info about the word
     var examplePrint = data[0].sourceUrls[0];
     wordEx.setAttribute("href", examplePrint);
-    wordEx.textContent= examplePrint;
-    
+    wordEx.textContent = examplePrint;
+
 
     var src = '';
 
     // if there is NO audio data...
     if (((data[0].phonetics).length) == 0) {
- feature/structureCss
         wordSound.style.display = "none";
         wordSound.setAttribute("src", '');
-  main
-    }
+    } else {
+        // if there IS audio data, loop through all phonetic indicies and make the audio div VISIBLE
+        wordSound.style.display = "block";
+        for (var i = 0; i < (data[0].phonetics).length; i++) {
+            // on each iteration, local src var is made to equal the audio data
+            src = data[0].phonetics[i].audio;
 
-    // if there IS audio data, loop through all phonetic indicies
-    for (var i = 0; i < (data[0].phonetics).length; i++) {
-        // on each iteration, local src var is made to equal the audio data
-        src = data[0].phonetics[i].audio;
-
-        // as soon as the audio isnt empty, break out of the loop
-        if (src != '') {
-            break;
+            // as soon as the audio isnt empty, break out of the loop
+            if (src != '') {
+                break;
+            }
         }
     }
 
+    // if after iterating through all phonetics, there is no readable data...
+    if (src == '') {
+        // hide the audio
+        wordSound.style.display = "none";
+    } else {
+        // otherswise, sets the audio src to the local src variable
+        wordSound.setAttribute("src", src);
+    }
 
-    // sets the audio src to the local src variable
-    wordSound.setAttribute("src", src);
 
-    
+
+
 
     // GABRIEL: I moved this down here so the search history loads AFTER the results are displayed
     searchHistory.setAttribute("style", "display:block");
