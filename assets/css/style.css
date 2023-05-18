@@ -34,13 +34,17 @@ header {
 }
 
 #catBtn {
-    width: 25%;
+    width: 15%;
+    height: 20%;
     background-color: var(--materialGreen);
+    position: absolute; top: 70%; right: 7%;
 }
 
 #dogBtn {
-    width: 25%;
+    width: 15%;
+    height: 20%;
     background-color: var(--materialRed);
+    position: absolute; top: 70%; right: 30%;
 }
 
 #mainPanel {
@@ -49,13 +53,41 @@ header {
 
     position: relative;
     top: 30vh;
+    height: 200%;
 
     padding: 30px;
 }
 
-#nyTimesNews {
+ /* Basic styling for centering elements */
+ .centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    width: 100%;
+}
+
+
+#dogPanel {
     background-color: aquamarine;
-    display: none;
+    display: flex;
+    position: absolute; top: 20%; right: 30%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 30%;
+    height: 70%;
+}
+
+#catPanel {
+    background-color: aquamarine;
+    display: block;
+    position: absolute; top: 20%; right: 2%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 30%;
+    height: 70%;
 }
 
 #searchHistory {
