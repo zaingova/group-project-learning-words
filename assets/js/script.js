@@ -1,5 +1,6 @@
 //Set the variables in order to select the HTML Element 
 var inputSearch = document.querySelector("#wordEnter");
+var randomBtn = document.querySelector("randWordBtn");
 var inputBtn = document.querySelector("#submitBtn");
 var searchResult = document.querySelector("#searchResult")
 var searchHistory = document.querySelector("#searchHistory");
@@ -40,7 +41,26 @@ if (localStorage.getItem("wordSearch")) {
     searchHistoryArray = [];
 }
 
+/*
+function getRamdon () {
+$.ajax({
+    method: 'GET',
+    url: 'https://api.api-ninjas.com/v1/randomword',
+    headers: { 'X-Api-Key': 'Eqn6iIwGxn1CRPg74znFPw==4cZzEWjtkFHJ2qcX'},
+    contentType: 'application/json',
+    success: function(result) {
+        var randomWord = result.word;
+        console.log(randomWord)
+    },
+    error: function ajaxError(jqXHR) {
+        console.error('Error: ', jqXHR.responseText);
+    }
+});
+}
 
+randomBtn.addEventListener("click", getRamdon);
+
+*/
 /// Principal trigger 
 function formSubmitHandler(event) {
     event.preventDefault();
@@ -92,8 +112,6 @@ function getWord(word, addToLocalStorage = true) {
                             searchHistory.removeChild(searchHistory.lastChild);
                         }
                         var listBtn = document.createElement("li");
-                        newBtn2.classList.add("col");
-                        newBtn2.classList.add("s3");
                         searchHistory.prepend(listBtn);
                         newBtn2.onclick = function () {
                             getWord(word, false);
@@ -253,17 +271,3 @@ $.ajax({
     }
 });
 */
-
-$.ajax({
-    method: 'GET',
-    url: 'https://api.api-ninjas.com/v1/randomword',
-    headers: { 'X-Api-Key': 'Eqn6iIwGxn1CRPg74znFPw==4cZzEWjtkFHJ2qcX'},
-    contentType: 'application/json',
-    success: function(result) {
-        console.log(result);
-    },
-    error: function ajaxError(jqXHR) {
-        console.error('Error: ', jqXHR.responseText);
-    }
-});
-
