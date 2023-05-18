@@ -46,9 +46,9 @@
 
   <main>
     <!-- main panel section; includes the returned results from the inputted word and some daily news -->
-    <section id="mainPanel" class="">
+    <section id="mainPanel" class="row">
       <!-- search results; elements include: word name, phonetics, definition, an example in a sentance, and the word type (noun, verb, adverb, etc) -->
-      <div id="searchResult" class="">
+      <div id="searchResult" class="col s4">
         <p id="word"></p>
         <audio id="sound" controls autoplay muted>
           <source src="" type="audio/mpeg">
@@ -57,10 +57,11 @@
         <p id="definition"></p>
         <p id="example"></p>
         <p id="wordType"></p>
+        <p id="synonym"></p>
       </div>
       <!-- animal images panel -->
-      <div id="dogPanel"></div>
-      <div id="catPanel"></div>
+      <div id="dogPanel" class="col s4"></div>
+      <div id="catPanel" class="col s4"></div>
     </section>
 
     <!-- displayed at the bottom of the page; last n entries of the search history -->
