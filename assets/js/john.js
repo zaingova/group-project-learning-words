@@ -17,7 +17,7 @@ searchButton.addEventListener('click', () => {
 
       // Create an image element
       const imageElement = document.createElement('img');
-      imageElement.className = 'centered'; // Apply a CSS class for centering
+      //imageElement.className = 'centered'; // Apply a CSS class for centering
 
       // Set maximum width and height for the image
       imageElement.style.maxWidth = '500px';
@@ -47,8 +47,7 @@ searchButton.addEventListener('click', () => {
 });
 
 // To activate the Cat images  
-
-var searchButton2 = document.getElementById('catBtn');
+const searchButton2 = document.getElementById('catBtn');
 
 searchButton2.addEventListener('click', () => {
   fetch('https://api.thecatapi.com/v1/images/search', {
