@@ -43,7 +43,7 @@ if (localStorage.getItem("wordSearch")) {
 
 /// Principal trigger 
 function formSubmitHandler(event) {
-    event.preventDefault();git 
+    event.preventDefault();
     var word = inputSearch.value;
     if (word) {
         getWord(word);
@@ -92,6 +92,8 @@ function getWord(word, addToLocalStorage = true) {
                             searchHistory.removeChild(searchHistory.lastChild);
                         }
                         var listBtn = document.createElement("li");
+                        newBtn2.classList.add("col");
+                        newBtn2.classList.add("s3");
                         searchHistory.prepend(listBtn);
                         newBtn2.onclick = function () {
                             getWord(word, false);
@@ -164,7 +166,7 @@ function displayWord(data) {
     wordType.textContent = 'Part of speech: ' + typePrint;
 
     // GABRIEL: I moved this down here so the search history loads AFTER the results are displayed
-    //searchHistory.setAttribute("style", "display:block");
+    searchHistory.setAttribute("style", "display:block");
 }
 
 function displaySynon(data) {
@@ -251,3 +253,17 @@ $.ajax({
     }
 });
 */
+
+$.ajax({
+    method: 'GET',
+    url: 'https://api.api-ninjas.com/v1/randomword',
+    headers: { 'X-Api-Key': 'Eqn6iIwGxn1CRPg74znFPw==4cZzEWjtkFHJ2qcX'},
+    contentType: 'application/json',
+    success: function(result) {
+        console.log(result);
+    },
+    error: function ajaxError(jqXHR) {
+        console.error('Error: ', jqXHR.responseText);
+    }
+});
+
