@@ -19,14 +19,18 @@
     color: var(--materialWhite);
 }
 
+audio {
+    margin: 15px 0 30px 0;
+}
+
 body {
     background-color: var(--almostBlack);
 }
 
 header {
     background: var(--materialBlack);
-    position: absolute;
-    top: 0;
+    /* position: absolute;
+    top: 0; */
     width: 100%;
 }
 
@@ -34,8 +38,8 @@ header {
     height: 50px;
 }
 
- /* Basic styling for centering elements */
- .centered {
+/* Basic styling for centering elements */
+.centered {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -64,8 +68,22 @@ header {
     color: var(--materialGray);
 }
 
-#catBtn {
+.searchHistoryTitle {
+    font-family: 'DM Serif Display', serif;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 30px 0;
+    color: var(--materialGray);
+}
 
+.searchSection {
+    position: absolute;
+    top: 40vh;
+    width: 100%;
+}
+
+#catBtn {
     border-right: 4px solid var(--borderRed);
     border-top: 4px solid var(--borderRed);
     border-bottom: 4px solid var(--borderRed);
@@ -88,14 +106,16 @@ header {
     display: none;
 
     position: relative;
-    top: 40vh;
+    top: 23vh;
     padding: 30px;
+
+    align-items: center;
 }
 
 #dogPanel {
+    display: none;
     background-color: aquamarine;
     display: flex;
-    position: absolute; top: 20%; right: 25%;
     justify-content: center;
     align-items: center;
     padding: 1px;
@@ -104,9 +124,9 @@ header {
 }
 
 #catPanel {
+    display: none;
     background-color: aquamarine;
     display: block;
-    position: absolute; top: 20%; right: 2%;
     justify-content: center;
     align-items: center;
     padding: 1px;
@@ -115,10 +135,6 @@ header {
 }
 
 #searchHistory {
-    position: absolute;
-    top: 75vh;
-    width: 100%;
-    display: none;
     background-color: var(--panelBG);
     list-style-type: none;
 }
@@ -129,7 +145,7 @@ header {
 }
 
 #searchHistory button {
-    background-color: #2061da;
+    background-color: var(--almostBlack);
     margin: 10px;
     font-size: 25px;
 }
@@ -145,6 +161,63 @@ header {
     background-color: var(--materialBlue);
 }
 
+#ulSearch {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 #word {
     font-size: 30px;
+}
+
+@media (max-height: 855px) {
+    .searchHistoryTitle {
+        margin: 0 0 10px 0;
+    }
+
+    #mainPanel {
+        top: 17vh;
+    }
+}
+
+@media (min-height: 950px) {
+    .searchHistoryTitle {
+        margin: 0 0 45px 0;
+    }
+}
+
+@media (min-height: 980px) {
+    .searchHistoryTitle {
+        margin: 0 0 55px 0;
+    }
+}
+
+@media (max-width: 1152px) {
+    .searchSection {
+        top: 43vh;
+    }
+
+    .searchHistoryTitle {
+        margin: 18px 0 30px 0;
+    }
+}
+
+@media (max-width: 610px) {
+    .searchSection {
+        top: 43vh;
+    }
+
+    .searchHistoryTitle {
+        margin: 18px 0 30px 0;
+    }
+}
+
+@media (max-width: 1153px) {
+    #mainPanel {
+        top: 22vh;
+    }
+
+    .searchHistoryTitle {
+        margin: 13px 0 30px 0;
+    }
 }
