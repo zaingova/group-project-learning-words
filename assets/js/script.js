@@ -51,9 +51,21 @@ function formSubmitHandler(event) {
     } else {
         alert("Please enter a word");
     }
-    // GABRIEL: I moved this down here so the search history loads AFTER the results are displayed
-    searchHistory.setAttribute("style", "display:block");
 }
+
+function wordValid(data) {
+    fetch(apiUrl)
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    // if (data[0].) {
+
+                    // }
+                })
+            }
+        })
+}
+
 // Fetch current word
 function getWord(word, addToLocalStorage = true) {
     var apiUrl = apiCallFree + word;
@@ -79,9 +91,12 @@ function getWord(word, addToLocalStorage = true) {
                             searchHistory.removeChild(searchHistory.lastChild);
                         }
                         var listBtn = document.createElement("li");
+                        newBtn2.classList.add("col");
+                        newBtn2.classList.add("s3");
                         searchHistory.prepend(listBtn);
                         newBtn2.onclick = function () {
                             getWord(word, false);
+
                         };
                     }
                 });
@@ -105,21 +120,31 @@ function displayWord(data) {
     var typePrint = data[0].meanings[0].partOfSpeech;
     wordDef.textContent = "Meanings: " + definitionPrint;
 
-    // if audio at index 0 isnt empty...
-    if (data[0].phonetics[0].audio != '') {
-        // make the audio src equal to that value
-        wordSound.setAttribute("src", data[0].phonetics[0].audio);
-    } else if (data[0].phonetics[0].audio == '') {
-        // if audio at index 0 IS empty... make audio src equal to the next index
-        wordSound.setAttribute("src", data[0].phonetics[1].audio);
-    } else if (data[0].phonetics[0].audio == '' && data[0].phonetics[1].audio == '') {
-        // try for one more subsequent index... 
-        wordSound.setAttribute("src", data[0].phonetics[2].audio);
-    } else {
-        // if the audio is still empty make the src blank
+    var src = '';
+
+    // if there is NO audio data...
+    if (((data[0].phonetics).length) == 0) {
         wordSound.setAttribute("src", '');
     }
+
+    // if there IS audio data, loop through all phonetic indicies
+    for (var i = 0; i < (data[0].phonetics).length; i++) {
+        // on each iteration, local src var is made to equal the audio data
+        src = data[0].phonetics[i].audio;
+
+        // as soon as the audio isnt empty, break out of the loop
+        if (src != '') {
+            break;
+        }
+    }
+
+    // sets the audio src to the local src variable
+    wordSound.setAttribute("src", src);
+
     wordType.textContent = 'Part of speech: ' + typePrint;
+
+    // GABRIEL: I moved this down here so the search history loads AFTER the results are displayed
+    searchHistory.setAttribute("style", "display:block");
 }
 
 //Trigger
