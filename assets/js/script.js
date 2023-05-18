@@ -43,7 +43,7 @@ if (localStorage.getItem("wordSearch")) {
 
 /// Principal trigger 
 function formSubmitHandler(event) {
-    event.preventDefault();
+    event.preventDefault();git 
     var word = inputSearch.value;
     if (word) {
         getWord(word);
@@ -139,7 +139,7 @@ function displayWord(data) {
     var wordType = document.querySelector('#wordType');
     var definitionPrint = data[0].meanings[0].definitions[0].definition;
     var typePrint = data[0].meanings[0].partOfSpeech;
-    wordDef.textContent = "Meaning: " + definitionPrint;
+    wordDef.textContent = "Meanings: " + definitionPrint;
 
     var src = '';
 
@@ -171,7 +171,7 @@ function displayWord(data) {
 
 function displaySynon(data) {
     var wordSynonym = document.querySelector('#synonym');
-    var synonymPrint = [data.synonyms.values()];
+    var synonymPrint = [...data.synonyms.values()];
     var allSynonyms = synonymPrint.join(', ');
     wordSynonym.textContent = "Synonyms: " + allSynonyms;
 
@@ -184,8 +184,59 @@ function displaySynon(data) {
 //Trigger
 inputBtn.addEventListener("click", formSubmitHandler);
 
+/*get Next API
+var getNextApi = function (word) {
+  var apiUrl2 = apiCallWord + word;
+  fetch(apiUrl2)
+    .then(function (response1) {
+      console.log(response1)
+      if (response1.ok) {
+        response1.json().then(function (dataFor) {
+          displaySynon(dataFor);
+        });
+      } else {
+        alert("Error: " + response1.statusText);
+      }
+    })
+    .catch(function (error) {
+      alert("Unable to connect to Word Api");
+    });
 
+
+    //Display synonyms 
+    var displaySynon = function (dataFor) {
+      var day1 = document.querySelector("#day-1");
+      
+      forecastTitle.textContent = "5-Day Forecast"
  
+      var day1Temp = dataFor.list[0].main.temp;
+      var day1x = dataFor.list[0].weather[0].icon;
+      var day1Desc = "http://openweathermap.org/img/w/" + day1x + ".png";
+      var day1Wind = dataFor.list[0].wind.speed;
+      var day1Date = dataFor.list[0].dt_txt;
+      var day1Humidity = dataFor.list[0].main.humidity;
+
+        var displayWord = function (data) {
+        var wordSound = document.querySelector('#sound');
+        var wordDef = document.querySelector('#definition');
+        var wordEx = document.querySelector('#example');
+        var wordType = document.querySelector('#wordType');
+        var definitionPrint = data[0].meanings[0].definitions[0].definition;
+        /// var examplePrint = data[0].meaning[0].definition[0];
+        var typePrint = data[0].meanings[0].partOfSpeech;
+        wordDef.textContent = "Meanings: " + definitionPrint;
+        //wordSound.textContent = "Phonetic: " + soundPrint;
+        //wordSound = "https://api.dictionaryapi.dev/media/pronunciations/en/cat-us.mp3";
+        wordType.textContent = 'Part of speech: ' + typePrint;
+        wordSound.setAttribute("src", data[0].phonetics[1].audio);
+    
+        getNextApi(data[0].word)
+        }
+    }
+
+      //getForecast(content.name)}*/
+
+
 
 /*
     var word = 'bright'
@@ -202,4 +253,3 @@ $.ajax({
     }
 });
 */
-
