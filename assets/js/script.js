@@ -92,8 +92,6 @@ function getWord(word, addToLocalStorage = true) {
                             searchHistory.removeChild(searchHistory.lastChild);
                         }
                         var listBtn = document.createElement("li");
-                        newBtn2.classList.add("col");
-                        newBtn2.classList.add("s3");
                         searchHistory.prepend(listBtn);
                         newBtn2.onclick = function () {
                             getWord(word, false);
@@ -166,7 +164,7 @@ function displayWord(data) {
     wordType.textContent = 'Part of speech: ' + typePrint;
 
     // GABRIEL: I moved this down here so the search history loads AFTER the results are displayed
-    searchHistory.setAttribute("style", "display:block");
+    //searchHistory.setAttribute("style", "display:block");
 }
 
 function displaySynon(data) {
