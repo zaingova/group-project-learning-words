@@ -94,7 +94,9 @@ color: #111111;
     text-align: center;
     color: var(--materialGray);
 }
-
+.btnContainer {
+    display: contents;
+}
 .searchSection {
     display: block;
     width: 100%;
@@ -109,6 +111,10 @@ color: #111111;
     width: 16.6%;
     background-color: var(--materialdarkerRed);
     
+}
+
+p, a {
+    font-size: 25px;
 }
 
 #dogBtn {
@@ -139,7 +145,7 @@ color: #111111;
 #dogPanel {
     display: none;
     display: block;
-    background-color: var(--almostBlack);
+    background-color:var(--panelBG);
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
@@ -153,7 +159,7 @@ color: #111111;
 #catPanel {
     display: none;
     display: block;
-    background-color: var(--almostBlack);
+    background-color:var(--panelBG);
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
@@ -206,6 +212,118 @@ color: #111111;
 #word {
     font-size: 30px;
 }
+
+
+
+
+/* media query*/
+
+@media screen and (max-width: 1210px) {
+    .description {
+        font-size: 25px;
+        
+       }
+
+    .btnContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+ #submitBtn {
+    width: 30%;
+ }
+
+ #randWordBtn {
+    width:unset ;
+ }
+ #searchHistory ul {    
+    padding: 0;
+}
+
+#dogBtn, #catBtn {
+    width: unset;
+}
+
+#catPanel, #dogPanel {
+    background-color:var(--panelBG);
+}
+
+}
+@media screen and (max-width: 960px) {
+
+   .title{
+    font-size:40px;
+   }
+   .description {
+    font-size: 25px;
+    
+   }
+
+   #wordEnter {
+    width: 100%;
+    text-align: center;
+   }
+
+   .btnContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: space-around;
+   }
+
+   
+#submitBtn{
+    border-radius: 30px;
+    font-size: small;
+    height: fit-content;
+    margin: 5px;
+    width: auto;
+    
+}
+
+
+   #randWordBtn {
+    border-left: 4px solid var(--borderBlue);
+    border-top: 4px solid var(--borderBlue);
+    border-bottom: 4px solid var(--borderBlue);
+    height: 57px;
+    text-align: center;
+    width: 50%;
+    border-radius: 30px;
+    background-color: var(--materialBlue);
+    padding: 0;
+    margin: 5px;
+   }
+
+   #dogBtn, #catBtn {
+    text-align: center;
+    width: 50%;
+    border-radius: 30px;
+    background-color: var(--materialdarkerRed);
+    border-right: 4px solid var(--borderRed);
+    border-top: 4px solid var(--borderRed);
+    border-bottom: 4px solid var(--borderRed);
+    padding: 0;
+    margin: 5px;
+}
+
+#searchHistory ul {
+    padding: 0;
+}
+
+.imageSection {
+    display: flex;
+    flex-direction: column
+}
+
+
+#catPanel, #dogPanel {
+    background-color:var(--panelBG);
+}
+   }
 
 /* @media (max-height: 855px) {
     .searchHistoryTitle {
