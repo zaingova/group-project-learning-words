@@ -26,6 +26,10 @@ audio {
     margin: 15px 0 30px 0;
 }
 
+.row {
+        --bs-gutter-x: 0;
+}
+
 body {
     background-color: var(--almostBlack);
 }
@@ -168,6 +172,7 @@ h2 {
     width: 16.6%;
     background-color: var(--materialRed);
     font-size: 14px;
+    margin-bottom: 10px;
 }
 
 #randWordBtn {
