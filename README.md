@@ -2,7 +2,7 @@
 
 ## Description
 
-Learning Words is an interactive web application that lets the user search for words, and it returns some information about said word, such as type (noun, verb, etc), definition, and synonyms. Once the user has searched for a word, they can generate random images of cats and dogs, along wit the respective breed (if applicable). The search history is displayed at the bottom, and allows users to go back to previously entered words at any time.
+Learning Words is an interactive web application that lets the user search for words, and it returns some information about words, such as type (noun, verb, etc), definition, and synonyms. Once the user has searched for a word, they can generate random images of cats and dogs, along with the respective breed (if applicable). The search history is displayed at the bottom and allows users to go back to previously entered words at any time.
 
 ## Visuals
 You can see the app at the following URL:
@@ -19,7 +19,7 @@ At the bottom of the page (top, before you enter the initial word), you will see
 
 ## Resources Used
 
-for this project we used multiple 3rd-party resources. They are as follows:
+for this project, we used multiple 3rd-party resources. They are as follows:
 
 APIs: 
  
