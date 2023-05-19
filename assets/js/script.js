@@ -71,7 +71,6 @@ function formSubmitHandler(event) {
     var word = inputSearch.value;
     if (word) {
         getWord(word);
-        getSynonym(word);
         inputSearch.value = "";
     } else {
         blurt('Please enter a word');
@@ -105,6 +104,7 @@ function getWord(word, addToLocalStorage = true) {
                     wordInput.textContent = wordComplete;
                     console.log(data);
                     displayWord(data);
+                    getSynonym(word);
                     if (addToLocalStorage) {
                         // Add word to search history array and save to localStorage
                         searchHistoryArray.unshift(wordComplete);
