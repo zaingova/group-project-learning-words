@@ -11,8 +11,7 @@ var dogBtn = document.querySelector("#dogBtn");
 
 // API variables - Free Dictionary and Words API from NINJA Library
 var apiCallFree = "https://api.dictionaryapi.dev/api/v2/entries/en/";
-var apiCallWord = 'https://wordsapiv1.p.mashape.com/words/';
-var synonyms = '/synonyms';
+
 
 var wordDataLoaded = false;
 
