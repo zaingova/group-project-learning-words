@@ -5,9 +5,10 @@
 Learning Words is an interactive web application that lets the user search for words, and it returns some information about words, such as type (noun, verb, etc), definition, and synonyms. Once the user has searched for a word, they can generate random images of cats and dogs, along with the respective breed (if applicable). The search history is displayed at the bottom and allows users to go back to previously entered words at any time.
 
 ## Visuals
+
+![demo image](./assets/images/demo.png)
 You can see the app at the following URL:
-[https://zaingova.github.io/group-project-learning-words/]
-(https://zaingova.github.io/group-project-learning-words/)
+[https://zaingova.github.io/group-project-learning-words/](https://zaingova.github.io/group-project-learning-words/)
 
 ## Usage
 
