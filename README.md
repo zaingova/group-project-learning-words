@@ -5,12 +5,13 @@
 Learning Words is an interactive web application that lets the user search for words, and it returns some information about said word, such as type (noun, verb, etc), definition, and synonyms. Once the user has searched for a word, they can generate random images of cats and dogs, along wit the respective breed (if applicable). The search history is displayed at the bottom, and allows users to go back to previously entered words at any time.
 
 ## Visuals
-
-[https://zaingova.github.io/group-project-learning-words/](https://zaingova.github.io/group-project-learning-words/)
+You can see the app at the following URL:
+[https://zaingova.github.io/group-project-learning-words/]
+(https://zaingova.github.io/group-project-learning-words/)
 
 ## Usage
 
-To use this app, simply click on the search bar and enter a word you would like to learn about. The API we used is somewhat limited, so some words dont work but there will be a blurt that lets you know if yoou enter something invalid. If you're stuck on what word to enter, you can always click on the "PICK RANDOM WORD" button which will add a random word to the search field. Once you do that, press ENTER or click on the SEARCH button.
+To use this app, simply click on the search bar and enter a word you would like to learn about. The API we used is somewhat limited, so some words don't work but there will be a blurt that lets you know if you enter something invalid. If you're stuck on what word to enter, you can always click on the "PICK RANDOM WORD" button which will add a random word to the search field. Once you do that, press ENTER or click on the SEARCH button.
 
 Once you've entered a word you can click on the "GENERATE CAT" or "GENERATE DOG" buttons, which will generate a random image of various cat/dog breeds along with their respective breeds (if applicable). You can keep clicking on the buttons to cycle through as many images as you would like.
 
