@@ -126,6 +126,19 @@ h2 {
     background-color: var(--materialBlue);
 }
 
+#catBtn:hover, #dogBtn:hover, #randWordBtn:hover  {
+    font-size: 15px;
+}
+
+#randWordBtn:hover  {
+    font-size: 17px;
+}
+
+
+#submitBtn:hover  {
+    font-size: 20px;
+}
+
 .btnContainer {
     display: contents;
 }
@@ -143,6 +156,7 @@ h2 {
     height: 57px;
     width: 16.6%;
     background-color: var(--materialdarkerRed);
+    font-size: 14px;
 
 }
 
@@ -153,6 +167,7 @@ h2 {
     height: 57px;
     width: 16.6%;
     background-color: var(--materialRed);
+    font-size: 14px;
 }
 
 #randWordBtn {
@@ -225,14 +240,20 @@ h2 {
 }
 
 
-
 #ulSearch {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+#ulSearch button {
+    font-size: 20px;
+}
 
+
+#ulSearch button:hover {
+    font-size: 22px;
+}
 
 
 
