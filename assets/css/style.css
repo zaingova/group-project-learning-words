@@ -348,7 +348,6 @@ h2 {
         text-align: center;
         width: 50%;
         border-radius: 30px;
-        background-color: var(--materialBlue);
         padding: 0;
         margin: 5px;
     }
@@ -358,7 +357,6 @@ h2 {
         text-align: center;
         width: 50%;
         border-radius: 30px;
-        background-color: var(--materialdarkerRed);
         border-right: 4px solid var(--borderRed);
         border-top: 4px solid var(--borderRed);
         border-bottom: 4px solid var(--borderRed);
@@ -419,7 +417,6 @@ h2 {
         text-align: center;
         width: 50%;
         border-radius: 30px;
-        background-color: var(--materialBlue);
         padding: 0;
         margin: 5px;
     }
@@ -429,7 +426,6 @@ h2 {
         text-align: center;
         width: 50%;
         border-radius: 30px;
-        background-color: var(--materialdarkerRed);
         border-right: 4px solid var(--borderRed);
         border-top: 4px solid var(--borderRed);
         border-bottom: 4px solid var(--borderRed);
