@@ -36,8 +36,10 @@ header {
 }
 
 .animalImage {
-    width: 30%;
-    height: 30%;
+    max-width: 100px;
+    height: 300px;
+    width: auto;
+    position: relative;
 }
 
 .btn-large {
@@ -175,6 +177,7 @@ header {
 
 #searchResult {
     padding-right: 60px;
+    
 }
 
 #submitBtn {
@@ -190,7 +193,8 @@ header {
 
 #ulSearch {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #word {
