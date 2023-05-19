@@ -14,6 +14,8 @@ var apiCallFree = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 var apiCallWord = 'https://wordsapiv1.p.mashape.com/words/';
 var synonyms = '/synonyms';
 
+var wordDataLoaded = false;
+
 /// Keypress event in search bar
 inputSearch.addEventListener("keypress", function (event) {
     if (event.keyCode === 13) {
@@ -42,10 +44,7 @@ if (localStorage.getItem("wordSearch")) {
     searchHistoryArray = [];
 }
 
-
-
 // Set button for pick a random - using AJAX for Random word API from NINJA Library- word and set into the input element
-
 randomBtn.addEventListener("click", function (event) {
     event.preventDefault()
     $.ajax({
@@ -62,10 +61,7 @@ randomBtn.addEventListener("click", function (event) {
             console.error('Error: ', jqXHR.responseText);
         }
     })
-
-
 });
-
 
 /// Principal trigger for search button
 function formSubmitHandler(event) {
@@ -94,9 +90,6 @@ function wordValid(data) {
         })
 }
 
-
-
-
 // Fetch word input element
 function getWord(word, addToLocalStorage = true) {
     var apiUrl = apiCallFree + word;
@@ -104,6 +97,7 @@ function getWord(word, addToLocalStorage = true) {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
+                    wordDataLoaded = true;
                     var wordComplete = data[0].word;
                     mainPanel.style.display = 'block';
                     wordInput.textContent = wordComplete;
@@ -125,13 +119,12 @@ function getWord(word, addToLocalStorage = true) {
                         searchHistory.prepend(listBtn);
                         newBtn2.onclick = function () {
                             getWord(word, false);
-
                         };
                     }
                 });
             } else {
-               ///Call bootstrap for ERROR
-               blurt('This word is not in our dictionary. Try a different one')
+                ///Call bootstrap for ERROR
+                blurt('This word is not in our dictionary. Try a different one')
             }
         })
         .catch(function (error) {
@@ -161,7 +154,6 @@ function getSynonym(word) {
 }
 
 // Display word 
-
 function displayWord(data) {
     var wordSound = document.querySelector('#sound');
     var wordDef = document.querySelector('#definition');
@@ -180,7 +172,6 @@ function displayWord(data) {
     var examplePrint = data[0].sourceUrls[0];
     wordEx.setAttribute("href", examplePrint);
     wordEx.textContent = examplePrint;
-
 
     var src = '';
 
@@ -211,40 +202,135 @@ function displayWord(data) {
         wordSound.setAttribute("src", src);
     }
 
-
-
-
-
-    // GABRIEL: I moved this down here so the search history loads AFTER the results are displayed
     searchHistory.setAttribute("style", "display:block");
 }
 
+// function for displaying a list of synonyms for the given word
 function displaySynon(data) {
     var wordSynonym = document.querySelector('#synonym');
     var synonymPrint = [...data.synonyms.values()];
     var allSynonyms = synonymPrint.join(', ');
     wordSynonym.textContent = "Synonyms: " + allSynonyms;
-
-
 }
 
+// gets the dogBtn and catBtn element from the HTML
+const dogBtnEl = document.getElementById('dogBtn'); 
+var catButtonEl = document.getElementById('catBtn');
+
+// event listener for click event
+dogBtnEl.addEventListener('click', (event) => {
+    event.preventDefault();
+    fetch('https://api.thedogapi.com/v1/images/search', {
+        method: 'GET',
+        headers: {
+            'X-api-Key': 'live_ZJDADQZeNEYecTS1YkdWVsq0kSKBEh6MT4Vbcg4dH4EoquI4ZjyheBEduhxbVHLR',
+        }
+    })
+
+        // Parse response as JSON
+        .then(response => response.json())
+        .then(data => {
+            // if a word has been entered into the search bar...
+            if (wordDataLoaded) {
+                // execute this code to load a picture
+                const breed = data[0]?.breeds[0]?.name;
+                const imageUrl = data[0]?.url;
+                console.log(data[0]?.breeds[0]?.name);
+
+                // Create an image element
+                const imageElement = document.createElement('img');
+                const breedNameElement = document.createElement('p');
+
+                // Set maximum width and height for the image
+                imageElement.style.maxWidth = '500px';
+                imageElement.style.maxHeight = '400px';
+
+                // Set the source and alt attributes
+                imageElement.classList.add("animalImage");
+                imageElement.src = imageUrl;
+                imageElement.alt = "dogImage";
+
+                // Clear the existing content of the div
+                const dogPanelDiv = document.getElementById('dogPanel');
+                dogPanelDiv.innerHTML = '';
+
+                // Append the breed name and image to the div
+                if (breed !== undefined) {
+                    breedNameElement.textContent = `Breed: ${breed}`;
+                    dogPanelDiv.appendChild(breedNameElement);
+                } else {
+                    breedNameElement.textContent = "Breed: Undefined";
+                    dogPanelDiv.appendChild(breedNameElement);
+                }
+
+                dogPanelDiv.appendChild(imageElement);
+            } else {
+                // otherwise, sends an alert
+                blurt("You need to enter a word before you can load this image!");
+            }
+
+        })
+        .catch(error => {
+            blurt('Error connecting to server!');
+        });
+});
+
+catButtonEl.addEventListener('click', (event) => {
+    event.preventDefault();
+    fetch('https://api.thecatapi.com/v1/images/search', {
+        method: 'GET',
+        headers: {
+            'X-api-Key': 'live_d6uoYVoUGgWSJVyAIXKPsxumfl7fqW8d2XfGkeUlLmLoF2Is5uhNSnN4lkO1xyBM',
+        }
+    })
+        .then(response => response.json()) // Parse response as JSON
+        .then(data => {
+            // if a word has been entered into the search bar...
+            if (wordDataLoaded) {
+                // execute this code to load a picture
+                const breed = data[0]?.breeds[0]?.name;
+                const imageUrl = data[0]?.url;
+
+                // Create an image element
+                const imageElement = document.createElement('img');
+                const breedNameElement = document.createElement('p');
+
+                // Set maximum width and height for the image
+                imageElement.style.maxWidth = '500px';
+                imageElement.style.maxHeight = '400px';
+
+                // Set the source and alt attributes
+                imageElement.classList.add("animalImage");
+                imageElement.src = imageUrl;
+                imageElement.alt = "catImage";
+
+                // Clear the existing content of the div
+                const catPanelDiv = document.getElementById('catPanel');
+                catPanelDiv.innerHTML = '';
+
+                // Append the breed name and image to the div
+                if (breed !== undefined) {
+                    breedNameElement.textContent = `Breed: ${breed}`;
+                    catPanelDiv.appendChild(breedNameElement);
+                } else {
+                    breedNameElement.textContent = "Breed: Undefined";
+                    catPanelDiv.appendChild(breedNameElement);
+                }
+
+                catPanelDiv.appendChild(imageElement);
+            } else {
+                // otherwise, sends an alert
+                blurt("You need to enter a word before you can load this image!");
+            }
+
+        })
+        .catch(error => {
+            blurt('Error connecting to server!');
+        });
+});
 
 //Trigger
 inputBtn.addEventListener("click", formSubmitHandler);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*get Next API
 var getNextApi = function (word) {
