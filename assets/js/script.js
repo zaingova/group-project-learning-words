@@ -54,7 +54,6 @@ randomBtn.addEventListener("click", function (event) {
         contentType: 'application/json',
         success: function (result) {
             var randomWord = result.word;
-            console.log(randomWord)
             inputSearch.value = randomWord;
         },
         error: function ajaxError(jqXHR) {
@@ -101,7 +100,6 @@ function getWord(word, addToLocalStorage = true) {
                     var wordComplete = data[0].word;
                     mainPanel.style.display = 'block';
                     wordInput.textContent = wordComplete;
-                    console.log(data);
                     displayWord(data);
                     getSynonym(word);
                     if (addToLocalStorage) {
@@ -143,7 +141,7 @@ function getSynonym(word) {
     }).then(function (response) {
         if (response.ok) {
             response.json().then(function (data) {
-                console.log(data);
+             
                 displaySynon(data);
             });
         } else {
