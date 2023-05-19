@@ -38,6 +38,7 @@ if (localStorage.getItem("wordSearch")) {
         // Do a fetch on the buttons displayed but does not include again in the localStorage
         newBtn.onclick = function () {
             getWord(word, false);
+            removePicture();
         };
     });
 } else {
@@ -66,6 +67,7 @@ randomBtn.addEventListener("click", function (event) {
 /// Principal trigger for search button
 function formSubmitHandler(event) {
     event.preventDefault();
+    removePicture()
     var word = inputSearch.value;
     if (word) {
         getWord(word);
@@ -119,6 +121,7 @@ function getWord(word, addToLocalStorage = true) {
                         searchHistory.prepend(listBtn);
                         newBtn2.onclick = function () {
                             getWord(word, false);
+                            removePicture();
                         };
                     }
                 });
@@ -256,18 +259,14 @@ dogBtnEl.addEventListener('click', (event) => {
 
                 // Append the breed name and image to the div
                 if (breed !== undefined) {
+                    dogPanelDiv.style.display = 'block'
                     breedNameElement.textContent = `Breed: ${breed}`;
                     dogPanelDiv.appendChild(breedNameElement);
-                } else if (breed === undefined){
+                } else if (breed === undefined) {
+                    dogPanelDiv.style.display = 'block'
                     breedNameElement.textContent = `Breed: Funny dog`;
                     dogPanelDiv.appendChild(breedNameElement);
                 }
-            
-                else {
-                    breedNameElement.textContent = "Breed: Undefined";
-                    dogPanelDiv.appendChild(breedNameElement);
-                }
-
                 dogPanelDiv.appendChild(imageElement);
             } else {
                 // otherwise, sends an alert
@@ -315,16 +314,15 @@ catButtonEl.addEventListener('click', (event) => {
 
                 // Append the breed name and image to the div
                 if (breed !== undefined) {
+                    catPanelDiv.style.display = 'block'
                     breedNameElement.textContent = `Breed: ${breed}`;
                     catPanelDiv.appendChild(breedNameElement);
-                } else if (breed === undefined){
+                } else if (breed === undefined) {
+                    catPanelDiv.style.display = 'block'
                     breedNameElement.textContent = `Breed: Funny cat`;
                     catPanelDiv.appendChild(breedNameElement);
                 }
-                else {
-                    breedNameElement.textContent = "Breed: Undefined";
-                    catPanelDiv.appendChild(breedNameElement);
-                }
+
 
                 catPanelDiv.appendChild(imageElement);
             } else {
@@ -337,6 +335,13 @@ catButtonEl.addEventListener('click', (event) => {
             blurt('Error connecting to server!');
         });
 });
+
+function removePicture() {
+    const catPanelDiv = document.getElementById('catPanel');
+    const dogPanelDiv = document.getElementById('dogPanel');
+    catPanelDiv.style.display = 'none'
+    dogPanelDiv.style.display = 'none'
+};
 
 //Trigger
 inputBtn.addEventListener("click", formSubmitHandler);
