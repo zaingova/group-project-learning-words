@@ -235,7 +235,7 @@ dogBtnEl.addEventListener('click', (event) => {
                 // execute this code to load a picture
                 const breed = data[0]?.breeds[0]?.name;
                 const imageUrl = data[0]?.url;
-                console.log(data[0]?.breeds[0]?.name);
+                
 
                 // Create an image element
                 const imageElement = document.createElement('img');
