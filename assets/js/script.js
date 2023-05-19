@@ -258,7 +258,12 @@ dogBtnEl.addEventListener('click', (event) => {
                 if (breed !== undefined) {
                     breedNameElement.textContent = `Breed: ${breed}`;
                     dogPanelDiv.appendChild(breedNameElement);
-                } else {
+                } else if (breed === undefined){
+                    breedNameElement.textContent = `Breed: Funny dog`;
+                    dogPanelDiv.appendChild(breedNameElement);
+                }
+            
+                else {
                     breedNameElement.textContent = "Breed: Undefined";
                     dogPanelDiv.appendChild(breedNameElement);
                 }
@@ -312,7 +317,11 @@ catButtonEl.addEventListener('click', (event) => {
                 if (breed !== undefined) {
                     breedNameElement.textContent = `Breed: ${breed}`;
                     catPanelDiv.appendChild(breedNameElement);
-                } else {
+                } else if (breed === undefined){
+                    breedNameElement.textContent = `Breed: Funny cat`;
+                    catPanelDiv.appendChild(breedNameElement);
+                }
+                else {
                     breedNameElement.textContent = "Breed: Undefined";
                     catPanelDiv.appendChild(breedNameElement);
                 }
