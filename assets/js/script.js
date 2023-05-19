@@ -180,7 +180,7 @@ function displayWord(data) {
         wordSound.style.display = "none";
         wordSound.setAttribute("src", '');
     } else {
-        // if there IS audio data, loop through all phonetic indicies and make the audio div VISIBLE
+        // if there IS audio data, loop through all phonetic and make the audio div VISIBLE
         wordSound.style.display = "block";
         for (var i = 0; i < (data[0].phonetics).length; i++) {
             // on each iteration, local src var is made to equal the audio data
@@ -214,7 +214,7 @@ function displaySynon(data) {
 }
 
 // gets the dogBtn and catBtn element from the HTML
-const dogBtnEl = document.getElementById('dogBtn'); 
+const dogBtnEl = document.getElementById('dogBtn');
 var catButtonEl = document.getElementById('catBtn');
 
 // event listener for click event
@@ -332,72 +332,3 @@ catButtonEl.addEventListener('click', (event) => {
 //Trigger
 inputBtn.addEventListener("click", formSubmitHandler);
 
-/*get Next API
-var getNextApi = function (word) {
-  var apiUrl2 = apiCallWord + word;
-  fetch(apiUrl2)
-    .then(function (response1) {
-      console.log(response1)
-      if (response1.ok) {
-        response1.json().then(function (dataFor) {
-          displaySynon(dataFor);
-        });
-      } else {
-        alert("Error: " + response1.statusText);
-      }
-    })
-    .catch(function (error) {
-      alert("Unable to connect to Word Api");
-    });
-
-
-    //Display synonyms 
-    var displaySynon = function (dataFor) {
-      var day1 = document.querySelector("#day-1");
-      
-      forecastTitle.textContent = "5-Day Forecast"
- 
-      var day1Temp = dataFor.list[0].main.temp;
-      var day1x = dataFor.list[0].weather[0].icon;
-      var day1Desc = "http://openweathermap.org/img/w/" + day1x + ".png";
-      var day1Wind = dataFor.list[0].wind.speed;
-      var day1Date = dataFor.list[0].dt_txt;
-      var day1Humidity = dataFor.list[0].main.humidity;
-
-        var displayWord = function (data) {
-        var wordSound = document.querySelector('#sound');
-        var wordDef = document.querySelector('#definition');
-        var wordEx = document.querySelector('#example');
-        var wordType = document.querySelector('#wordType');
-        var definitionPrint = data[0].meanings[0].definitions[0].definition;
-        /// var examplePrint = data[0].meaning[0].definition[0];
-        var typePrint = data[0].meanings[0].partOfSpeech;
-        wordDef.textContent = "Meanings: " + definitionPrint;
-        //wordSound.textContent = "Phonetic: " + soundPrint;
-        //wordSound = "https://api.dictionaryapi.dev/media/pronunciations/en/cat-us.mp3";
-        wordType.textContent = 'Part of speech: ' + typePrint;
-        wordSound.setAttribute("src", data[0].phonetics[1].audio);
-    
-        getNextApi(data[0].word)
-        }
-    }
-
-      //getForecast(content.name)}*/
-
-
-
-/*
-    var word = 'bright'
-$.ajax({
-    method: 'GET',
-    url: 'https://api.api-ninjas.com/v1/thesaurus?word=' + word,
-    headers: { 'X-Api-Key': 'Eqn6iIwGxn1CRPg74znFPw==4cZzEWjtkFHJ2qcX'},
-    contentType: 'application/json',
-    success: function(result) {
-        console.log(result);
-    },
-    error: function ajaxError(jqXHR) {
-        console.error('Error: ', jqXHR.responseText);
-    }
-});
-*/
