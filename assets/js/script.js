@@ -76,7 +76,7 @@ function formSubmitHandler(event) {
         getSynonym(word);
         inputSearch.value = "";
     } else {
-        alert("Please enter a word");
+        blurt('Please enter a word');
     }
 }
 
@@ -93,6 +93,9 @@ function wordValid(data) {
             }
         })
 }
+
+
+
 
 // Fetch word input element
 function getWord(word, addToLocalStorage = true) {
@@ -127,11 +130,12 @@ function getWord(word, addToLocalStorage = true) {
                     }
                 });
             } else {
-                alert("Error: " + response.statusText);
+               ///Call bootstrap for ERROR
+               blurt('This word is not in our dictionary. Try a different one')
             }
         })
         .catch(function (error) {
-            alert("Unable to connect to Free Dictionary");
+            blurt('Unable to connect to Free Dictionary')
         });
 }
 
@@ -148,11 +152,11 @@ function getSynonym(word) {
                 displaySynon(data);
             });
         } else {
-            alert("Error: " + response.statusText);
+            blurt('Unable to connect to Ninja API');
         }
     })
         .catch(function (error) {
-            alert("Unable to connect to Ninja Api");
+            blurt('Unable to connect to Ninja API');
         });
 }
 
@@ -227,27 +231,6 @@ function displaySynon(data) {
 
 //Trigger
 inputBtn.addEventListener("click", formSubmitHandler);
-
-/*
-(function ($) {
-    $(function (event) {
-        
-        //initialize all modals           
-        $('.modal').modal();
-
-        //now you can open modal from code
-        $('#modal1').modal('open');
-
-        //or by click on trigger
-        $('.trigger-modal').modal();
-
-    }); // end of document ready
-})(jQuery); // end of jQuery name space
-*/
-
-
-
-
 
 
 
