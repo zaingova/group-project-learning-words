@@ -7,6 +7,7 @@ var searchHistory = document.querySelector("#searchHistory");
 var ulSearch = document.querySelector('#ulSearch');
 var wordInput = document.querySelector('#word');
 var mainPanel = document.querySelector('#mainPanel');
+var dogBtn = document.querySelector("#dogBtn");
 
 // API variables - Free Dictionary and Words API from NINJA Library
 var apiCallFree = "https://api.dictionaryapi.dev/api/v2/entries/en/";
@@ -224,10 +225,43 @@ function displaySynon(data) {
 }
 
 
-
-
 //Trigger
 inputBtn.addEventListener("click", formSubmitHandler);
+
+/*
+(function ($) {
+    $(function (event) {
+        
+        //initialize all modals           
+        $('.modal').modal();
+
+        //now you can open modal from code
+        $('#modal1').modal('open');
+
+        //or by click on trigger
+        $('.trigger-modal').modal();
+
+    }); // end of document ready
+})(jQuery); // end of jQuery name space
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*get Next API
 var getNextApi = function (word) {
