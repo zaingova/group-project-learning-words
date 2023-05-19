@@ -31,9 +31,7 @@ APIs:
 
 4. [Random Word API](https://api-ninjas.com/api/randomword)
 
-5. [Words API](https://www.wordsapi.com/)
-
-6. [Free Dictionary API](https://dictionaryapi.dev/)
+5. [Free Dictionary API](https://dictionaryapi.dev/)
 
 CSS Libraries:
 
