@@ -1,0 +1,36 @@
+{
+  "name": "blurt",
+  "version": "1.0.2",
+  "homepage": "http://bitwiser.in/blurt/",
+  "authors": [
+    "brijeshb42"
+  ],
+  "description": "A javascript default alert, confirm and prompt replacement.",
+  "main": [
+    "dist/css/blurt.min.css",
+    "dist/js/blurt.min.js"
+  ],
+  "keywords": [
+    "alert",
+    "confirm",
+    "prompt",
+    "blurt",
+    "brompt",
+    "bunfirm",
+    "javascript"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    ".sass-cache",
+    "src",
+    ".gitignore",
+    "Gruntfile.js",
+    ".jshintrc",
+    "package.json",
+    "bower.json"
+  ]
+}

@@ -35,6 +35,11 @@ header {
     width: 100%;
 }
 
+/* Style for blurt modals*/
+h2 {
+color: #111111;
+}
+
 .animalImage {
     min-width: 100px;
     height: 150px;
