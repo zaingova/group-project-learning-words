@@ -265,35 +265,91 @@ h2 {
 
 /* media query*/
 
+
+
+@media screen and (max-width: 620px) {
+   
+    a{
+        font-size: small;
+    }
+
+    .imageSection {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+
+    }
+
+    
+
+    #searchResult {
+        display: contents;
+    }
+}
+
+
+/*1110*/
+
+
 @media screen and (max-width: 1210px) {
+    
+    .imageSection{
+        display: flex;
+        flex-direction: column;
+    }
+
     .description {
         font-size: 25px;
 
     }
-
     .btnContainer {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        padding-top: 10px;
-        padding-bottom: 20px;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: space-around;
+        justify-content: space-around;
     }
+
 
     #submitBtn {
-        width: 30%;
+        border-radius: 30px;
+        font-size: small;
+        height: fit-content;
+        margin: 5px;
+        width: auto;
+
     }
+
 
     #randWordBtn {
-        width: unset;
-    }
-
-    #searchHistory ul {
+        border-left: 4px solid var(--borderBlue);
+        border-top: 4px solid var(--borderBlue);
+        border-bottom: 4px solid var(--borderBlue);
+        height: 57px;
+        text-align: center;
+        width: 50%;
+        border-radius: 30px;
+        background-color: var(--materialBlue);
         padding: 0;
+        margin: 5px;
     }
 
     #dogBtn,
     #catBtn {
-        width: unset;
+        text-align: center;
+        width: 50%;
+        border-radius: 30px;
+        background-color: var(--materialdarkerRed);
+        border-right: 4px solid var(--borderRed);
+        border-top: 4px solid var(--borderRed);
+        border-bottom: 4px solid var(--borderRed);
+        padding: 0;
+        margin: 5px;
+    }
+
+    #searchHistory ul {
+        padding: 0;
     }
 
     #catPanel,
@@ -305,6 +361,9 @@ h2 {
 
 @media screen and (max-width: 960px) {
 
+    a{
+        font-size: small;
+    }
     .title {
         font-size: 40px;
     }
@@ -364,18 +423,16 @@ h2 {
         margin: 5px;
     }
 
+    #searchResult {
+        text-align: center;
+    }
     #searchHistory ul {
         padding: 0;
     }
-
-    .imageSection {
-        display: flex;
-        flex-direction: column
-    }
-
 
     #catPanel,
     #dogPanel {
         background-color: var(--panelBG);
     }
 }
+/* 620 */
