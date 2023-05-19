@@ -11,7 +11,7 @@
     --materialDarkerBlue: #174eb4;
     --borderRed: #8b1734;
     --descriptionDivider: #202020;
-    --descriptionText: #585858;
+    --descriptionText: #e4e738;
     --iconText: #409ddb;
 }
 
@@ -36,8 +36,8 @@ header {
 }
 
 .animalImage {
-    max-width: 100px;
-    height: 300px;
+    min-width: 100px;
+    height: 150px;
     width: auto;
     position: relative;
 }
@@ -74,7 +74,8 @@ header {
     font-size: 60px;
     font-family: 'DM Serif Display', serif;
     margin-bottom: 35px;
-
+    margin-top: 0;
+    padding-top: 25px;
 }
 
 .titleIcon {
@@ -141,7 +142,7 @@ header {
     text-align: center;
     font-size: 20px;
     padding: 15px 0 0 0;
-    height: 400px;
+    height: 300px;
 }
 
 #catPanel {
@@ -155,7 +156,7 @@ header {
     text-align: center;
     font-size: 20px;
     padding: 15px 0 0 0;
-    height: 400px;
+    height: 300px;
 }
 
 #searchHistory {
